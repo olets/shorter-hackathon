@@ -1,18 +1,17 @@
-<script setup>
+<script setup lang="ts">
 // *must* assign the defineProps result to a variable in order to correctly handle brackets in prop val
-const props = defineProps({
-  class: String,
-  tag: {
-    type: String,
-    default: "div",
-  },
-});
+const props = defineProps<{
+  class?: string;
+  tag?: string;
+}>();
+
+const tag = props.tag || "div";
 </script>
 
 <template>
   <component
     data-component="Box"
-    :is="props.tag"
+    :is="tag"
     :class="[
       '{position:relative}',
       '{border:var(--border-width)_solid_currentColor}',

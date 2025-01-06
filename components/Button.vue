@@ -1,6 +1,12 @@
-<script>
+<script setup lang="ts">
 const Box = resolveComponent("Box");
+
+const props = defineProps<{
+  href: string[];
+}>();
 </script>
+
+<!-- @TODO fancy hover effect -->
 
 <template>
   <Box

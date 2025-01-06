@@ -1,12 +1,7 @@
 <script setup lang="ts">
-const props = defineProps({
-  items: {
-    type: Array,
-    required: true,
-  },
-});
-
-console.log({ length: props.items.length });
+const props = defineProps<{
+  items: string[];
+}>();
 </script>
 
 <template>
