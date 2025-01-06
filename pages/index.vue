@@ -1,22 +1,21 @@
 <script setup>
-import { ButtonLink, Heading, List, Subheading } from "#components";
+import { ButtonLink, Heading, List, Subheading, Wrapper } from "#components";
 const DynamicBox = resolveComponent("DynamicBox");
+import title from "#shared/title";
 </script>
 
 <!-- @TODO fancy background effect -->
 
 <template>
-  <div
-    class="{display:grid} {min-height:100dvh} {padding:3.5rem} {justify-content:center} {align-items:center}"
-  >
+  <Wrapper>
     <div
-      class="{display:grid} {grid-template-columns:repeat(2,1fr)} {grid-template-rows:repeat(4,1fr)} {width:90vw} {max-width:900px}"
+      class="{display:grid} {grid-template-columns:repeat(2,1fr)} {grid-template-rows:repeat(4,1fr)}"
     >
       <DynamicBox
         class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,-1rem,0)} {grid-area:1_/_1_/_4_/_2} {gap:2rem}"
       >
         <Heading>
-          The Hackathon Shorter Than The World’s “Shortest” Hackathon
+          {{ title }}
         </Heading>
 
         <section class="{display:flex} {flex-direction:column} {gap:1rem}">
@@ -38,9 +37,7 @@ const DynamicBox = resolveComponent("DynamicBox");
           </dl>
         </section>
 
-        <div class="{align-self:start}">
-          <ButtonLink to="/about">Learn More</ButtonLink>
-        </div>
+        <ButtonLink to="/about">Learn More</ButtonLink>
       </DynamicBox>
 
       <DynamicBox
@@ -80,5 +77,5 @@ const DynamicBox = resolveComponent("DynamicBox");
         </DynamicBox>
       </div>
     </div>
-  </div>
+  </Wrapper>
 </template>

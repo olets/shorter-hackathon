@@ -10,7 +10,6 @@ const is = props.is || "div";
 
 <template>
   <component
-    data-component="Box"
     :is
     :class="[
       '{position:relative}',

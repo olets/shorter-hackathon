@@ -1,4 +1,8 @@
 <script setup>
+import { ButtonLink, Wrapper } from "#components";
+const DynamicSrOnly = resolveComponent("DynamicSrOnly");
+import title from "#shared/title";
+
 const faqItems = [
   {
     question: "When will I be notified?",
@@ -41,60 +45,96 @@ const termsAndConditions = [
 </script>
 
 <template>
-  <h1>NVIDIA X Vercel Hackathon</h1>
+  <Wrapper>
+    <div class="{display:flex} {flex-direction:column} {gap:4rem}">
+      <h1
+        class="{font-size:4rem} {line-height:1} {text-align:center} {text-transform:uppercase} {font-weight:700}"
+      >
+        {{ title }}
+      </h1>
 
-  <section>
-    <p>
-      6 weeks ago, we attempted an experiment to use AI and throw the “Worlds
-      Shortest Hackathon.” The experiment worked. In just 2 hours, we were
-      floored with what hackers were able to accomplish, including everything
-      from giving code editors automated computer-wide context to finding a
-      severe vulnerability in a major publication.
-    </p>
+      <section
+        class="{font-weight:300} {font-size:1.5rem} {text-align:center} {display:flex} {flex-direction:column} {gap:1rem}"
+      >
+        <DynamicSrOnly is="h2">Introduction</DynamicSrOnly>
 
-    <p>We’re running the experiment back.</p>
+        <p>
+          6 weeks ago, we attempted an experiment to use AI and throw the
+          “Worlds Shortest Hackathon.” The experiment worked. In just 2 hours,
+          we were floored with what hackers were able to accomplish, including
+          everything from giving code editors automated computer-wide context to
+          finding a severe vulnerability in a major publication.
+        </p>
 
-    <p>
-      NVIDIA and Vercel are teaming up again for another fast-paced hackathon to
-      see what you can accomplish with AI. Practice your prompting and come let
-      it rip…. Or come cook, as Guillermo would say
-    </p>
+        <p>We’re running the experiment back.</p>
 
-    <dl>
-      <dt></dt>
-      <dt>Date</dt>
-      :
-      <dd>January 16, 5:00 p.m. PT</dd>
-      <dt>Location</dt>
-      :
-      <dd>San Francisco (Exact location shared to confirmed attendees)</dd>
-      <dt>Prize</dt>
-      :
-      <dd>
-        Winning team (of 1 or 2) will receive a GeForce RTX 4080 signed by
-        Jensen Huang + more prizes to come
-      </dd>
-    </dl>
+        <p>
+          NVIDIA and Vercel are teaming up again for another fast-paced
+          hackathon to see what you can accomplish with AI. Practice your
+          prompting and come let it rip…. Or come cook, as Guillermo would say
+        </p>
+      </section>
 
-    <a href="#">Register Now</a>
-  </section>
-  <section>
-    <h2>FAQ</h2>
+      <section class="{font-weight:300} {font-size:1.5rem}">
+        <DynamicSrOnly is="h2">Quick facts</DynamicSrOnly>
 
-    <div v-for="item in faqItems">
-      <p>
-        <em>{{ item.question }}</em>
+        <dl class="{display:flex} {flex-direction:column} {gap:1rem}">
+          <div>
+            <dt class="{display:inline} {font-weight:600}">Date:</dt>
+            <dd class="{display:inline}">January 16, 5:00 p.m. PT</dd>
+          </div>
 
-        {{ item.answer }}
-      </p>
+          <div>
+            <dt class="{display:inline} {font-weight:600}">Location:</dt>
+            <dd class="{display:inline}">
+              San Francisco (Exact location shared to confirmed attendees)
+            </dd>
+          </div>
+
+          <div>
+            <dt class="{display:inline} {font-weight:600}">Prize:</dt>
+            <dd class="{display:inline}">
+              Winning team (of 1 or 2) will receive a GeForce RTX 4080 signed by
+              Jensen Huang + more prizes to come
+            </dd>
+          </div>
+        </dl>
+
+        <div class="{text-align:center} {margin-top:3rem}">
+          <ButtonLink to="">Register Now</ButtonLink>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="{font-size:2rem} {font-weight:700}">FAQ</h2>
+
+        <div
+          class="{display:flex} {flex-direction:column} {gap:1rem} {margin-top:1rem}"
+        >
+          <div v-for="item in faqItems">
+            <p>
+              <em
+                class="{display:block} {font-weight:700} {font-style:initial}"
+                >{{ item.question }}</em
+              >
+
+              {{ item.answer }}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="{font-size:2rem} {font-weight:700}">Terms and Conditions</h2>
+
+        <div
+          class="{display:flex} {flex-direction:column} {gap:1rem} {margin-top:1rem}"
+        >
+          <p v-for="item in termsAndConditions">
+            {{ item }}
+          </p>
+        </div>
+      </section>
     </div>
-  </section>
-
-  <section>
-    <h2>Terms and Conditions</h2>
-
-    <p v-for="item in termsAndConditions">
-      {{ item }}
-    </p>
-  </section>
+  </Wrapper>
 </template>
