@@ -1,43 +1,7 @@
-<style scoped>
-h2 {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-family: monospace;
-}
-.fancy-corners {
-  border: var(--border-width) solid currentColor;
-  position: relative;
-
-  &::before,
-  &::after {
-    background: var(--color-background);
-    content: "";
-    position: absolute;
-    border-width: 1px;
-    border-style: solid;
-    width: var(--width-fancy-corners);
-    aspect-ratio: 1 / 1;
-  }
-
-  &::before {
-    top: -1px;
-    left: -1px;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-right-color: currentColor;
-    border-bottom-color: currentColor;
-  }
-
-  &::after {
-    bottom: -1px;
-    right: -1px;
-    border-top-color: currentColor;
-    border-left-color: currentColor;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-  }
-}
-</style>
+<script setup>
+import { Button, Heading, List, Subheading } from "#components";
+const Box = resolveComponent("Box");
+</script>
 
 <template>
   <div
@@ -46,17 +10,15 @@ h2 {
     <div
       class="{display:grid} {grid-template-columns:repeat(2,1fr)} {grid-template-rows:repeat(4,1fr)} {width:90vw} {max-width:900px}"
     >
-      <div
-        class="{display:flex} {flex-direction:column} {justify-content:center} fancy-corners {padding:2rem} {transform:translate3d(-1rem,-1rem,0)} {grid-area:1_/_1_/_4_/_2} {gap:2rem}"
+      <Box
+        class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,-1rem,0)} {grid-area:1_/_1_/_4_/_2} {gap:2rem}"
       >
-        <h1
-          class="{font-size:2.5rem} {font-weight:500} {line-height:1} {text-transform:uppercase} {word-spacing:.5ch}"
-        >
+        <Heading>
           The Hackathon Shorter Than The World’s “Shortest” Hackathon
-        </h1>
+        </Heading>
 
         <section class="{display:flex} {flex-direction:column} {gap:1rem}">
-          <h2>Quick Facts</h2>
+          <Subheading>Quick Facts</Subheading>
 
           <dl>
             <div>
@@ -74,59 +36,43 @@ h2 {
           </dl>
         </section>
 
-        <a
-          class="{align-self:start} {border:1px_solid_currentColor} {padding:.8rem_1.5rem} {--width-fancy-corners:10px} {font-family:monospace} {text-transform:uppercase} {font-weight:700} fancy-corners :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)} {transition:background-color_400ms}"
-          href="#"
-          >Share your intention to participate</a
-        >
-      </div>
+        <Button>Share your intention to participate</Button>
+      </Box>
 
-      <section
-        class="{display:flex} {flex-direction:column} {justify-content:center} fancy-corners {padding:2rem} {transform:translate3d(-1rem,1rem,0)} {grid-area:4_/_1_/_5_/_2} {gap:1rem}"
+      <Box
+        tag="section"
+        class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,1rem,0)} {grid-area:4_/_1_/_5_/_2} {gap:1rem}"
       >
-        <h2>Instigator</h2>
+        <Subheading>Instigator</Subheading>
 
         Henry Bley-Vroman
-      </section>
+      </Box>
 
       <div
         class="{display:flex} {align-items:center} {grid-area:1_/_2_/_5_/_3} {transform:translateX(1rem)}"
       >
-        <section
-          class="{display:flex} {flex-direction:column} {justify-content:center} fancy-corners {padding:2rem} {margin:1rem_0} {gap:2rem}"
+        <Box
+          tag="section"
+          class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {margin:1rem_0} {gap:2rem}"
         >
-          <h2>From idea to however far you get</h2>
+          <Subheading>From idea to however far you get</Subheading>
 
           <p>
             Join other developers in an hour-fifty-minute coding challenge for
             the fun of it.
           </p>
 
-          <ul class="{margin-left:2rem}">
-            <li
-              class="::marker{content:-__} ::marker{color:color-mix(in_srgb,currentColor_60%,transparent)}"
-            >
-              Take part as an individual, or as a group.
-            </li>
-            <li
-              class="::marker{content:-__} ::marker{color:color-mix(in_srgb,currentColor_60%,transparent)} {margin-top:1rem}"
-            >
-              Try not to get misled by Stackoverflow.
-            </li>
-            <li
-              class="::marker{content:-__} ::marker{color:color-mix(in_srgb,currentColor_60%,transparent)} {margin-top:1rem}"
-            >
-              All participants will get some good TBD something or other.
-            </li>
-            <li
-              class="::marker{content:-__} ::marker{color:color-mix(in_srgb,currentColor_60%,transparent)} {margin-top:1rem}"
-            >
-              Everyone is welcome.
-            </li>
-          </ul>
+          <List
+            :items="[
+              'Take part as an individual, or as a group.',
+              'Try not to get misled by Stackoverflow.',
+              'All participants will get some good TBD something or other.',
+              'Everyone is welcome.',
+            ]"
+          ></List>
 
           <p>Happy hacking!</p>
-        </section>
+        </Box>
       </div>
     </div>
   </div>
