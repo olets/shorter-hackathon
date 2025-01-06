@@ -17,20 +17,13 @@ const is = props.is || "div";
       '{border:var(--border-width)_solid_currentColor}',
 
       // before and after
-      '::before{background:var(--color-background)}',
-      '::before{content:}',
-      '::before{position:absolute}',
-      '::before{border-width:1px}',
-      '::before{border-style:solid}',
-      '::before{width:var(--width-fancy-corners)}',
-      '::before{aspect-ratio:1_/_1}',
-      '::after{background:var(--color-background)}',
-      '::after{content:}',
-      '::after{position:absolute}',
-      '::after{border-width:1px}',
-      '::after{border-style:solid}',
-      '::after{width:var(--width-fancy-corners)}',
-      '::after{aspect-ratio:1_/_1}',
+      '::before{background:var(--color-background)} ::after{background:var(--color-background)}',
+      '::before{content:} ::after{content:}',
+      '::before{position:absolute} ::after{position:absolute}',
+      '::before{border-width:1px} ::after{border-width:1px}',
+      '::before{border-style:solid} ::after{border-style:solid}',
+      '::before{width:var(--width-fancy-corners)} ::after{width:var(--width-fancy-corners)}',
+      '::before{aspect-ratio:1_/_1} ::after{aspect-ratio:1_/_1}',
 
       // before
       '::before{top:-1px}',
