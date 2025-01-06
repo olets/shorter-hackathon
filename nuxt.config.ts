@@ -15,6 +15,9 @@ export default defineNuxtConfig({
             --color-foreground: #fff;
             --width-fancy-corners: 20px;
           }
+          a {
+            cursor: pointer;
+          }
         `,
       },
     ],
