@@ -2,16 +2,16 @@
 // *must* assign the defineProps result to a variable in order to correctly handle brackets in prop val
 const props = defineProps<{
   class?: string;
-  tag?: string;
+  is?: string;
 }>();
 
-const tag = props.tag || "div";
+const is = props.is || "div";
 </script>
 
 <template>
   <component
     data-component="Box"
-    :is="tag"
+    :is
     :class="[
       '{position:relative}',
       '{border:var(--border-width)_solid_currentColor}',

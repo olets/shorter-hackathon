@@ -42,7 +42,7 @@ const Box = resolveComponent("Box");
       </Box>
 
       <Box
-        tag="section"
+        is="section"
         class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,1rem,0)} {grid-area:4_/_1_/_5_/_2} {gap:1rem}"
       >
         <Subheading>Instigator</Subheading>
@@ -54,7 +54,7 @@ const Box = resolveComponent("Box");
         class="{display:flex} {align-items:center} {grid-area:1_/_2_/_5_/_3} {transform:translateX(1rem)}"
       >
         <Box
-          tag="section"
+          is="section"
           class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {margin:1rem_0} {gap:2rem}"
         >
           <Subheading>From idea to however far you get</Subheading>
