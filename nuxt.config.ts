@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   unocss: {
     preflights: [
       {
+        // @TODO color theme switcher
         getCSS: () => `
           :root {
             --border-width: 1px;

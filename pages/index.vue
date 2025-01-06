@@ -3,6 +3,8 @@ import { ButtonLink, Heading, List, Subheading } from "#components";
 const Box = resolveComponent("Box");
 </script>
 
+<!-- @TODO fancy background effect -->
+
 <template>
   <div
     class="{display:grid} {min-height:100dvh} {padding:3.5rem} {justify-content:center} {align-items:center}"
@@ -73,6 +75,7 @@ const Box = resolveComponent("Box");
             ]"
           ></List>
 
+          <!-- @TODO fancy effect -->
           <p>Happy hacking!</p>
         </Box>
       </div>
