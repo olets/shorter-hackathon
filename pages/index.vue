@@ -1,6 +1,6 @@
 <script setup>
 import { ButtonLink, Heading, List, Subheading } from "#components";
-const Box = resolveComponent("Box");
+const DynamicBox = resolveComponent("DynamicBox");
 </script>
 
 <!-- @TODO fancy background effect -->
@@ -12,7 +12,7 @@ const Box = resolveComponent("Box");
     <div
       class="{display:grid} {grid-template-columns:repeat(2,1fr)} {grid-template-rows:repeat(4,1fr)} {width:90vw} {max-width:900px}"
     >
-      <Box
+      <DynamicBox
         class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,-1rem,0)} {grid-area:1_/_1_/_4_/_2} {gap:2rem}"
       >
         <Heading>
@@ -41,21 +41,21 @@ const Box = resolveComponent("Box");
         <div class="{align-self:start}">
           <ButtonLink to="/about">Learn More</ButtonLink>
         </div>
-      </Box>
+      </DynamicBox>
 
-      <Box
+      <DynamicBox
         is="section"
         class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,1rem,0)} {grid-area:4_/_1_/_5_/_2} {gap:1rem}"
       >
         <Subheading>Instigator</Subheading>
 
         Henry Bley-Vroman
-      </Box>
+      </DynamicBox>
 
       <div
         class="{display:flex} {align-items:center} {grid-area:1_/_2_/_5_/_3} {transform:translateX(1rem)}"
       >
-        <Box
+        <DynamicBox
           is="section"
           class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {margin:1rem_0} {gap:2rem}"
         >
@@ -77,7 +77,7 @@ const Box = resolveComponent("Box");
 
           <!-- @TODO fancy effect -->
           <p>Happy hacking!</p>
-        </Box>
+        </DynamicBox>
       </div>
     </div>
   </div>
