@@ -1,5 +1,5 @@
 <script setup>
-import { Button, Heading, List, Subheading } from "#components";
+import { ButtonLink, Heading, List, Subheading } from "#components";
 const Box = resolveComponent("Box");
 </script>
 
@@ -36,7 +36,9 @@ const Box = resolveComponent("Box");
           </dl>
         </section>
 
-        <Button>Share your intention to participate</Button>
+        <div class="{align-self:start}">
+          <ButtonLink to="/about">Learn More</ButtonLink>
+        </div>
       </Box>
 
       <Box
