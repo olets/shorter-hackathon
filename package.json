@@ -1,5 +1,6 @@
 {
   "name": "shorter-hackathon",
+  "version": "1.0.0",
   "packageManager": "pnpm@9.10.0",
   "private": true,
   "type": "module",
