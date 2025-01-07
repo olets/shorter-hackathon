@@ -200,7 +200,7 @@ const allPlatforms: AllPlatforms = {
   >
     <template v-for="platform in platforms">
       <a
-        class="{border:1px_solid_currentColor} {color:var(--color-light)} {border-radius:4px} {display:inline-flex} {align-items:center} {justify-content:center} {padding:0.25rem_0.5rem} {gap:.25rem}"
+        class="{border:1px_solid_currentColor} {color:var(--color-light)} {border-radius:4px} {display:inline-flex} {align-items:center} {justify-content:center} {padding:0.25rem_0.5rem} {gap:.25rem} {font-size:1.5rem}"
         v-if="allPlatforms[platform]"
         :href="allPlatforms[platform].href"
         rel="noopener noreferrer"
