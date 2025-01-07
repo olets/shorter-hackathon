@@ -23,6 +23,14 @@ export default defineNuxtConfig({
           }
           a {
             cursor: pointer;
+            text-decoration: underline !important;
+            text-decoration-color: currentColor !important;
+            transition: text-decoration-color 100ms;
+
+            &:focus-visible,
+            &:hover {
+              text-decoration-color: transparent !important;
+            }
           }
         `,
       },

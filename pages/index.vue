@@ -1,5 +1,12 @@
 <script setup>
-import { ButtonLink, Heading, List, Subheading, Wrapper } from "#components";
+import {
+  ButtonLink,
+  Heading,
+  List,
+  QuickFacts,
+  Subheading,
+  Wrapper,
+} from "#components";
 const DynamicBox = resolveComponent("DynamicBox");
 import title from "#shared/title";
 </script>
@@ -18,24 +25,7 @@ import title from "#shared/title";
           {{ title }}
         </Heading>
 
-        <section class="{display:flex} {flex-direction:column} {gap:1rem}">
-          <Subheading>Quick Facts</Subheading>
-
-          <dl>
-            <div>
-              <dt class="{display:inline}">When:&nbsp;</dt>
-              <dd class="{display:inline}">
-                An hour and fifty minutes at any time(s) on
-                <time datetime="2025-01-16">Thursday, January 16th </time>
-              </dd>
-            </div>
-
-            <div class="{margin-top:.5rem}">
-              <dt class="{display:inline}">Where:&nbsp;</dt>
-              <dd class="{display:inline}">Whereever you are</dd>
-            </div>
-          </dl>
-        </section>
+        <QuickFacts></QuickFacts>
 
         <ButtonLink to="/about">Learn More</ButtonLink>
       </DynamicBox>

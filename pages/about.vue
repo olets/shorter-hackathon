@@ -1,47 +1,39 @@
 <script setup>
-import { ButtonLink, Share, Wrapper } from "#components";
+import { ButtonLink, QuickFacts, Share, Wrapper } from "#components";
 const DynamicSrOnly = resolveComponent("DynamicSrOnly");
 import title from "#shared/title";
 const runtimeConfig = useRuntimeConfig();
 
 const faqItems = [
   {
-    question: "When will I be notified?",
-    answer:
-      "By January 11, 2025, when you will be emailed instructions and location for the event.",
-  },
-  {
-    question: "My attendance was not confirmed. Can I still go?",
-    answer: "Due to limited space, this event is invite only.",
+    question: "Do I need to register?",
+    answer: "Nope!",
   },
   {
     question: "What technologies am I allowed to use?",
-    answer: "Anything that helps you code faster.",
+    answer: "Anything but AI. Disable Codepilot/Tabnine/etc before you start.",
   },
   {
-    question: "I’m not from the SF/Bay Area. Can I participate?",
-    answer: "Yes, as long as you’re able to attend in person.",
+    question: "I exist in a location. Can I participate?",
+    answer: "Yes! This is a remote event.",
   },
   {
-    question: "How will submissions be judged?",
-    answer:
-      "Judges will review submissions for real-world novel application as well as how highly leveraged gen AI tooling was used. Vibes will also matter.",
+    question: "Will submissions be judged?",
+    answer: "Nope!",
   },
   {
     question: "Will food and drink be available at the event?",
-    answer: "Yes.",
+    answer: "If you have some!",
   },
   {
-    question: "Can you ship me my prize?",
-    answer: "No.",
+    question: "Will I get anything for participation?",
+    answer: "Yes! Some fun something TBD.",
   },
 ];
 
 const termsAndConditions = [
-  "You must be a confirmed attendee of the event.",
-  "Only individuals or teams of two can compete in the event.",
-  "You must complete the registration form to be entered into the sweepstakes.",
-  "You must be 21 years or older to participate.",
+  "Anyone of any age in any location can join.",
+  "You can work solo or in a group.",
 ];
 </script>
 
@@ -60,46 +52,33 @@ const termsAndConditions = [
         <DynamicSrOnly is="h2">Introduction</DynamicSrOnly>
 
         <p>
-          6 weeks ago, we attempted an experiment to use AI and throw the
-          “Worlds Shortest Hackathon.” The experiment worked. In just 2 hours,
-          we were floored with what hackers were able to accomplish, including
-          everything from giving code editors automated computer-wide context to
-          finding a severe vulnerability in a major publication.
+          People can code cool things in a short period of time, without
+          corporate backing, without billionaire incentives, without AI,
+          regardless of where they live and can afford to travel to, regardless
+          of how many people they'd like to work with, regardless of when in the
+          day can make time.
         </p>
 
-        <p>We’re running the experiment back.</p>
+        <p>
+          In the spirit of
+          <a href="https://www.youtube.com/watch?v=tkg858APzFk"
+            >The Academy of Movies Shot During the Oscars Awards</a
+          >,
+        </p>
 
         <p>
-          NVIDIA and Vercel are teaming up again for another fast-paced
-          hackathon to see what you can accomplish with AI. Practice your
-          prompting and come let it rip…. Or come cook, as Guillermo would say
+          On January 16, the same day as
+          <a href="https://shortest-hackathon.vercel.app/"
+            >The World’s Shortest Hackathon</a
+          >, a 2-hour in-person AI-focused event in which a select few
+          developers compete for a chance to win a computer part signed by the
+          9th wealthiest person in the world, reserve an hour and fifty minutes
+          to code something without AI.
         </p>
       </section>
 
-      <section class="{font-weight:300} {font-size:1.5rem}">
-        <DynamicSrOnly is="h2">Quick facts</DynamicSrOnly>
-
-        <dl class="{display:flex} {flex-direction:column} {gap:1rem}">
-          <div>
-            <dt class="{display:inline} {font-weight:600}">Date:</dt>
-            <dd class="{display:inline}">January 16, 5:00 p.m. PT</dd>
-          </div>
-
-          <div>
-            <dt class="{display:inline} {font-weight:600}">Location:</dt>
-            <dd class="{display:inline}">
-              San Francisco (Exact location shared to confirmed attendees)
-            </dd>
-          </div>
-
-          <div>
-            <dt class="{display:inline} {font-weight:600}">Prize:</dt>
-            <dd class="{display:inline}">
-              Winning team (of 1 or 2) will receive a GeForce RTX 4080 signed by
-              Jensen Huang + more prizes to come
-            </dd>
-          </div>
-        </dl>
+      <div class="{font-weight:300} {font-size:1.5rem}">
+        <QuickFacts></QuickFacts>
 
         <div
           class="{display:flex} {flex-direction:column} {gap:1.5rem} {align-items:center} {margin-top:3rem}"
@@ -113,7 +92,7 @@ const termsAndConditions = [
             :url="runtimeConfig.public.cdnURL"
           ></Share>
         </div>
-      </section>
+      </div>
 
       <section>
         <h2 class="{font-size:2rem} {font-weight:700}">FAQ</h2>
