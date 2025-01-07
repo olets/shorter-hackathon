@@ -16,37 +16,37 @@ import title from "#shared/title";
 <template>
   <Wrapper>
     <div
-      class="{display:grid} {grid-template-columns:repeat(2,1fr)} {grid-template-rows:repeat(4,1fr)}"
+      class="{display:grid} @media(min-width:calc(768rem_/_16)){grid-template-columns:repeat(2,1fr)} {gap:2rem}"
     >
-      <DynamicBox
-        class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,-1rem,0)} {grid-area:1_/_1_/_4_/_2} {gap:2rem}"
-      >
-        <Heading>
-          {{ title }}
-        </Heading>
+      <div class="{display:flex} {flex-direction:column} {gap:2rem}">
+        <DynamicBox
+          class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:2rem}"
+        >
+          <Heading>
+            {{ title }}
+          </Heading>
 
-        <QuickFacts></QuickFacts>
+          <QuickFacts></QuickFacts>
 
-        <p>There's context should know about:</p>
+          <p>There's context should know about:</p>
 
-        <ButtonLink to="/about">Learn More</ButtonLink>
-      </DynamicBox>
+          <ButtonLink to="/about">Learn More</ButtonLink>
+        </DynamicBox>
 
-      <DynamicBox
-        is="section"
-        class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {transform:translate3d(-1rem,1rem,0)} {grid-area:4_/_1_/_5_/_2} {gap:1rem}"
-      >
-        <Subheading>Instigator</Subheading>
-
-        Henry Bley-Vroman
-      </DynamicBox>
-
-      <div
-        class="{display:flex} {align-items:center} {grid-area:1_/_2_/_5_/_3} {transform:translateX(1rem)}"
-      >
         <DynamicBox
           is="section"
-          class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {margin:1rem_0} {gap:2rem}"
+          class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:1rem}"
+        >
+          <Subheading>Instigator</Subheading>
+
+          Henry Bley-Vroman
+        </DynamicBox>
+      </div>
+
+      <div class="{display:flex} {align-items:center}">
+        <DynamicBox
+          is="section"
+          class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:2rem}"
         >
           <Subheading>From idea to however far you get</Subheading>
 
