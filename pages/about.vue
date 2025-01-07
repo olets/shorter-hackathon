@@ -1,5 +1,5 @@
 <script setup>
-import { ButtonLink, QuickFacts, Share, Wrapper } from "#components";
+import { QuickFacts, Share, Wrapper } from "#components";
 const DynamicSrOnly = resolveComponent("DynamicSrOnly");
 import title from "#shared/title";
 

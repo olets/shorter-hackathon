@@ -1,6 +1,6 @@
 <script setup>
 import {
-  ButtonLink,
+  Button,
   Heading,
   List,
   QuickFacts,
@@ -30,7 +30,9 @@ import title from "#shared/title";
 
         <p>There's context should know about:</p>
 
-        <ButtonLink to="/about">Learn More</ButtonLink>
+        <NuxtLink class="{align-self:start}" to="/about">
+          <Button to="/about">Learn More</Button>
+        </NuxtLink>
       </DynamicBox>
 
       <div class="{display:flex} {align-items:center}">
