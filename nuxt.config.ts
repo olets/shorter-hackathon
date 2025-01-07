@@ -4,6 +4,8 @@ import presetCSS from "@olets/unocss-preset-css";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
+  // TEMP https://github.com/nuxt/nuxt/issues/30461
+  experimental: { appManifest: false },
   modules: ["@unocss/nuxt"],
   runtimeConfig: {
     public: {
