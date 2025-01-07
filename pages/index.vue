@@ -58,7 +58,6 @@ import title from "#shared/title";
           <List
             :items="[
               'Take part as an individual, or as a group.',
-              'Try not to get misled by Stackoverflow.',
               'All participants will get some good TBD something or other.',
               'Everyone is welcome.',
             ]"
