@@ -27,18 +27,18 @@ const is = props.is || "div";
       // before
       '::before{top:-1px}',
       '::before{left:-1px}',
-      '::before{border-top-color:transparent}',
-      '::before{border-right-color:currentColor}',
-      '::before{border-bottom-color:currentColor}',
-      '::before{border-left-color:transparent}',
+      '::before{border-top-color:var(--color-background)}',
+      '::before{border-right-color:var(--color-foreground)}',
+      '::before{border-bottom-color:var(--color-foreground)}',
+      '::before{border-left-color:var(--color-background)}',
 
       // after
       '::after{right:-1px}',
       '::after{bottom:-1px}',
-      '::after{border-top-color:currentColor}',
-      '::after{border-right-color:transparent}',
-      '::after{border-bottom-color:transparent}',
-      '::after{border-left-color:currentColor}',
+      '::after{border-top-color:var(--color-foreground)}',
+      '::after{border-right-color:var(--color-background)}',
+      '::after{border-bottom-color:var(--color-background)}',
+      '::after{border-left-color:var(--color-foreground)}',
 
       props.class,
     ]"

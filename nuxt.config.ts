@@ -23,9 +23,12 @@ export default defineNuxtConfig({
           :root {
             --color-light: white;
             --color-dark: black;
+
+            --color-background: var(--color-light);
+            --color-foreground: var(--color-dark);
           
-            background-color: var(--color-background, var(--color-light));
-            color: var(--color-foreground, var(--color-dark));
+            background-color: var(--color-background);
+            color: var(--color-foreground);
             color-scheme: var(--color-scheme, light);
             transition-duration: var(--transition-duration, 200ms);
             transition-property: background-color, color;
