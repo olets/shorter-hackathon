@@ -25,8 +25,8 @@ const DynamicSrOnly = resolveComponent("DynamicSrOnly");
         <dd class="{display:inline}">
           Document your start time, document any time(s) you leave and then come
           back, document your end time. Share your project with the hashtag
-          #ShorterHackathon, and send a link to and your time documentation to
-          <a href="https://olets.dev">Henry Bley-Vroman</a>.
+          <code>#ShorterHackathon</code>, and send a link to and your time
+          documentation to <a href="https://olets.dev">Henry Bley-Vroman</a>.
         </dd>
       </div>
     </dl>

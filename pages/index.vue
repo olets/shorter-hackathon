@@ -27,6 +27,8 @@ import title from "#shared/title";
 
         <QuickFacts></QuickFacts>
 
+        <p>There's context should know about:</p>
+
         <ButtonLink to="/about">Learn More</ButtonLink>
       </DynamicBox>
 

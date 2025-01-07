@@ -52,22 +52,23 @@ const termsAndConditions = [
         <DynamicSrOnly is="h2">Introduction</DynamicSrOnly>
 
         <p>
-          People can code cool things in a short period of time, without
-          corporate backing, without billionaire incentives, without AI,
-          regardless of where they live and can afford to travel to, regardless
-          of how many people they'd like to work with, regardless of when in the
-          day can make time.
-        </p>
+          People can code cool things in a short period of time, without a
+          monetarily valuable reward, without AI, regardless of where they live
+          and can afford to travel to, regardless of how many people they'd like
+          to work with, regardless of when in the day can make time.
 
-        <p>
+          <br />
+          <br />
+
           In the spirit of
           <a href="https://www.youtube.com/watch?v=tkg858APzFk"
             >The Academy of Movies Shot During the Oscars Awards</a
           >,
-        </p>
 
-        <p>
-          On January 16, the same day as
+          <br />
+          <br />
+
+          on January 16, the same day as
           <a href="https://shortest-hackathon.vercel.app/"
             >The World’s Shortest Hackathon</a
           >, a 2-hour in-person AI-focused event in which a select few
