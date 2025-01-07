@@ -25,7 +25,7 @@ const options = [
 </script>
 
 <template>
-  <div>
+  <div :class="`${colorScheme.value ? '' : '{display:none}'}`">
     <label
       class="@media(min-width:48rem){display:block}"
       :for="runtimeConfig.public.ids.colorScheme"
