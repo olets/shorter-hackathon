@@ -1,7 +1,17 @@
 {
-  "name": "nuxt-app",
+  "name": "shorter-hackathon",
+  "packageManager": "pnpm@9.10.0",
   "private": true,
   "type": "module",
+  "author": "Henry Bley-Vroman <olets@olets.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olets/shorter-hackathon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/olets/shorter-hackathon/issues"
+  },
+  "homepage": "https://shorter-hackathon.vercel.app",
   "scripts": {
     "build": "pnpx nuxi build",
     "dev": "pnpx nuxi dev",
