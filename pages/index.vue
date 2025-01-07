@@ -19,30 +19,19 @@ import title from "#shared/title";
     <div
       class="{display:grid} @media(min-width:calc(768rem_/_16)){grid-template-columns:repeat(2,1fr)} {gap:2rem}"
     >
-      <div class="{display:flex} {flex-direction:column} {gap:2rem}">
-        <DynamicBox
-          class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:2rem}"
-        >
-          <Heading>
-            {{ title }}
-          </Heading>
+      <DynamicBox
+        class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:2rem}"
+      >
+        <Heading>
+          {{ title }}
+        </Heading>
 
-          <QuickFacts></QuickFacts>
+        <QuickFacts></QuickFacts>
 
-          <p>There's context should know about:</p>
+        <p>There's context should know about:</p>
 
-          <ButtonLink to="/about">Learn More</ButtonLink>
-        </DynamicBox>
-
-        <DynamicBox
-          is="section"
-          class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:1rem}"
-        >
-          <Subheading>Instigator</Subheading>
-
-          Henry Bley-Vroman
-        </DynamicBox>
-      </div>
+        <ButtonLink to="/about">Learn More</ButtonLink>
+      </DynamicBox>
 
       <div class="{display:flex} {align-items:center}">
         <DynamicBox
