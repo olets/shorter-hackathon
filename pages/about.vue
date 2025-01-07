@@ -60,16 +60,16 @@ const termsAndConditions = [
           <br />
 
           In the spirit of
-          <a href="https://www.youtube.com/watch?v=tkg858APzFk"
-            >The Academy of Movies Shot During the Oscars Awards</a
+          <NuxtLink to="https://www.youtube.com/watch?v=tkg858APzFk"
+            >The Academy of Movies Shot During the Oscars Awards</NuxtLink
           >,
 
           <br />
           <br />
 
           on January 16 —the same day as
-          <a href="https://shortest-hackathon.vercel.app/"
-            >The World’s Shortest Hackathon</a
+          <NuxtLink to="https://shortest-hackathon.vercel.app/"
+            >The World’s Shortest Hackathon</NuxtLink
           >, a 2-hour in-person AI-focused event in which a select few
           developers compete for a chance to win a computer part signed by the
           9th wealthiest person in the world— reserve an hour and fifty minutes

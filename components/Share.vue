@@ -199,11 +199,10 @@ const allPlatforms: AllPlatforms = {
     class="{display:flex} {flex-wrap:wrap} {justify-content:center} {gap:1rem}"
   >
     <template v-for="platform in platforms">
-      <a
+      <NuxtLink
         class="{border:1px_solid_currentColor} {color:var(--color-light)} {border-radius:4px} {display:inline-flex} {align-items:center} {justify-content:center} {padding:0.25rem_0.5rem} {gap:.25rem} {font-size:1.5rem}"
         v-if="allPlatforms[platform]"
-        :href="allPlatforms[platform].href"
-        rel="noopener noreferrer"
+        :to="allPlatforms[platform].href"
         :style="`${
           allPlatforms[platform]?.color
             ? `background: ${allPlatforms[platform]?.color}; fill: currentColor;`
@@ -215,7 +214,7 @@ const allPlatforms: AllPlatforms = {
           v-html="allPlatforms[platform].icon"
         ></span>
         <span>{{ allPlatforms[platform].label }}</span>
-      </a>
+      </NuxtLink>
     </template>
   </div>
 </template>
