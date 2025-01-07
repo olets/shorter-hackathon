@@ -5,6 +5,7 @@ import title from "#shared/title";
 useHead({
   script: [
     {
+      // SEEALSO app.vue, components/ColorScheme.vue
       innerHTML: `
       let initializeColorScheme = () => {
         let initialColorScheme = localStorage.getItem("colorScheme");

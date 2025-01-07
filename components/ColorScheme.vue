@@ -1,13 +1,35 @@
+<script lang="ts">
+// Importing `reactive` in the <script setup> works, but I don't trust that to not break in future versions.
+import { reactive } from "vue";
+
+interface ColorScheme {
+  value: string;
+  setValue(colorScheme: string): void;
+}
+
+export const colorScheme: ColorScheme = reactive({
+  value: "",
+
+  setValue(colorScheme: string) {
+    this.value = colorScheme;
+  },
+});
+</script>
+
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 const DynamicSrOnly = resolveComponent("DynamicSrOnly");
 const runtimeConfig = useRuntimeConfig();
 
+watch(
+  () => colorScheme.value,
+  (value) => {
+    localStorage.setItem("colorScheme", value);
+  }
+);
+
 onMounted(() => {
-  /**
-   * Initialized in app.vue
-   * @DUPE app.vue
-   */
+  // SEEALSO app.vue, components/ColorScheme.vue
   let localStorageColorScheme =
     localStorage.getItem("colorScheme") ?? "light dark";
 
