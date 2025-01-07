@@ -17,9 +17,38 @@ export default defineNuxtConfig({
         getCSS: () => `
           :root {
             --border-width: 1px;
-            --color-background: #000;
-            --color-foreground: #fff;
             --width-fancy-corners: 20px;
+          }
+
+          :root {
+            --color-light: white;
+            --color-dark: black;
+          
+            background-color: var(--color-background, var(--color-light));
+            color: var(--color-foreground, var(--color-dark));
+            color-scheme: var(--color-scheme, light);
+            transition-duration: var(--transition-duration, 200ms);
+            transition-property: background-color, color;
+          
+            &[data-initial-color-scheme="dark"],
+            &:has(#color-scheme option[value="dark"]:checked) {
+              --color-background: var(--color-dark);
+              --color-foreground: var(--color-light);
+              --color-scheme: dark;
+            }
+          
+            @media (prefers-color-scheme: dark) {
+              &[data-initial-color-scheme="light dark"],
+              &:has(#color-scheme option[value="light dark"]:checked) {
+                --color-background: var(--color-dark);
+                --color-foreground: var(--color-light);
+                --color-scheme: dark;
+              }
+            }
+          
+            @media screen and (prefers-reduced-motion: reduce), (update: slow) {
+              --transition-duration: none;
+            }
           }
           a {
             cursor: pointer;
