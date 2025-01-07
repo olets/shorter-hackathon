@@ -4,6 +4,7 @@ import {
   Heading,
   List,
   QuickFacts,
+  Share,
   Subheading,
   Wrapper,
 } from "#components";
@@ -68,5 +69,14 @@ import title from "#shared/title";
         </DynamicBox>
       </div>
     </div>
+
+    <section
+      class="{display:flex} {flex-direction:column} {gap:1rem} {text-align:center} {margin-top:3rem}"
+    >
+      <Subheading>Spread the word</Subheading>
+      <Share
+        :text="`${title} is a hour-fifty-minute AI-free remote hackathon anyone can join on January 16!`"
+      ></Share>
+    </section>
   </Wrapper>
 </template>
