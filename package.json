@@ -3,11 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "pnpx nuxi build",
+    "dev": "pnpx nuxi dev",
+    "generate": "pnpx nuxi generate",
+    "preview": "pnpx serve .output/public",
+    "postinstall": "pnpx nuxi prepare"
   },
   "dependencies": {
     "@unocss/reset": "^0.65.3",
