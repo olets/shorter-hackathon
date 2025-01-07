@@ -11,6 +11,10 @@ export default defineNuxtConfig({
     public: {
       cdnURL: "https://shorter-hackathon.vercel.app/",
       contentId: "content",
+      ids: {
+        content: "content",
+        colorScheme: "color-scheme",
+      },
     },
   },
   unocss: {

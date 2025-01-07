@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
+const DynamicSrOnly = resolveComponent("DynamicSrOnly");
+const runtimeConfig = useRuntimeConfig();
 
 onMounted(() => {
   /**
@@ -17,17 +19,19 @@ const options = [
   { label: "Dark", value: "dark" },
   { label: "Light", value: "light" },
 ];
-
-const id = "color-scheme";
 </script>
 
 <template>
   <div>
-    <label :for="id">Theme: </label>
+    <label
+      :for="runtimeConfig.public.ids.colorScheme"
+    >
+      Theme:
+    </label>
 
     <select
       class="{border:1px_solid_currentColor} {border-radius:4px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
-      :id="id"
+      :id="runtimeConfig.public.ids.colorScheme"
       v-model="colorScheme.value"
     >
       <option v-for="o in options" :value="o.value">{{ o.label }}</option>

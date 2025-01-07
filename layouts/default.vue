@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig();
 import { Header, SkipLink } from "#components";
+const runtimeConfig = useRuntimeConfig();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import { Header, SkipLink } from "#components";
 
     <Header />
 
-    <main :id="runtimeConfig.public.contentId">
+    <main :id="runtimeConfig.public.ids.content">
       <slot />
     </main>
   </div>
