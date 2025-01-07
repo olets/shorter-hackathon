@@ -46,7 +46,7 @@ const termsAndConditions = [
       </h1>
 
       <section
-        class="{font-weight:300} {font-size:1.5rem} {text-align:center} {display:flex} {flex-direction:column} {gap:1rem}"
+        class="{font-weight:300} {font-size:1.5rem} {text-align:center} {display:inherit} {flex-direction:inherit} {gap:1rem}"
       >
         <DynamicSrOnly is="h2">Introduction</DynamicSrOnly>
 
