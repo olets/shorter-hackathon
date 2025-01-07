@@ -15,9 +15,14 @@ onMounted(() => {
 });
 
 const options = [
-  { label: "Auto", value: "light dark" },
-  { label: "Dark", value: "dark" },
-  { label: "Light", value: "light" },
+  { label: "Computer", value: "light dark", iconLabel: "Laptop", icon: "💻" },
+  { label: "Dark", value: "dark", iconLabel: "Cloud", icon: "☁️" },
+  {
+    label: "Light",
+    value: "light",
+    iconLabel: "Sun Behind Small Cloud",
+    icon: "☀️",
+  },
 ];
 </script>
 
@@ -34,7 +39,10 @@ const options = [
       :id="runtimeConfig.public.ids.colorScheme"
       v-model="colorScheme.value"
     >
-      <option v-for="o in options" :value="o.value">{{ o.label }}</option>
+      <option v-for="o in options" :value="o.value">
+        <span role="img" aria-label="{{ o.iconLabel }}">{{ o.icon }}</span>
+        {{ o.label }}
+      </option>
     </select>
   </div>
 </template>
