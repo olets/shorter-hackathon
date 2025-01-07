@@ -2,7 +2,6 @@
 import { ButtonLink, QuickFacts, Share, Wrapper } from "#components";
 const DynamicSrOnly = resolveComponent("DynamicSrOnly");
 import title from "#shared/title";
-const runtimeConfig = useRuntimeConfig();
 
 const faqItems = [
   {
@@ -96,8 +95,6 @@ const termsAndConditions = [
           <Share
             :hashtags="['ShorterHackathon', 'hackathon']"
             :text="`On January 16 I'm going to take part in ${title}, the hour-fifty-minute AI-free remote hackathon anyone can join.`"
-            :title
-            :url="runtimeConfig.public.cdnURL"
           ></Share>
         </div>
       </div>
