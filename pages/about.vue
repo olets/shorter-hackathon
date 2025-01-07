@@ -1,7 +1,8 @@
 <script setup>
-import { ButtonLink, Wrapper } from "#components";
+import { ButtonLink, Share, Wrapper } from "#components";
 const DynamicSrOnly = resolveComponent("DynamicSrOnly");
 import title from "#shared/title";
+const runtimeConfig = useRuntimeConfig();
 
 const faqItems = [
   {
@@ -100,8 +101,17 @@ const termsAndConditions = [
           </div>
         </dl>
 
-        <div class="{text-align:center} {margin-top:3rem}">
-          <ButtonLink to="">Register Now</ButtonLink>
+        <div
+          class="{display:flex} {flex-direction:column} {gap:1.5rem} {align-items:center} {margin-top:3rem}"
+        >
+          Tell your networks that you intend to participate!
+
+          <Share
+            :hashtags="['ShorterHackathon', 'hackathon']"
+            :text="`On January 16 I'm going to take part in ${title}, the hour-fifty-minute AI-free remote hackathon anyone can join.`"
+            :title
+            :url="runtimeConfig.public.cdnURL"
+          ></Share>
         </div>
       </section>
 

@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   modules: ["@unocss/nuxt"],
+  runtimeConfig: {
+    public: {
+      cdnURL: "https://shorter-hackathon.vercel.app/",
+    },
+  },
   unocss: {
     preflights: [
       {
