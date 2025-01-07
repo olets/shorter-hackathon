@@ -1,0 +1,35 @@
+<script setup lang="ts">
+const DynamicSrOnly = resolveComponent("DynamicSrOnly");
+</script>
+
+<template>
+  <section>
+    <DynamicSrOnly is="h2">Quick facts</DynamicSrOnly>
+
+    <dl class="{display:flex} {flex-direction:column} {gap:1rem}">
+      <div>
+        <dt class="{display:inline} {font-weight:600}">Date:&nbsp;</dt>
+        <dd class="{display:inline}">
+          An hour and fifty minutes at any time(s) on
+          <time datetime="2025-01-16">Thursday, January 16th</time>
+        </dd>
+      </div>
+
+      <div>
+        <dt class="{display:inline} {font-weight:600}">Location:&nbsp;</dt>
+        <dd class="{display:inline}">Whereever you are</dd>
+      </div>
+
+      <div>
+        <dt class="{display:inline} {font-weight:600}">How:&nbsp;</dt>
+        <dd class="{display:inline}">
+          Document your start time, document any time(s) you leave and then come
+          back, document your end time. Share your project with the hashtag
+          <code>#ShorterHackathon</code>, and send a link to and your time
+          documentation to
+          <NuxtLink to="https://olets.dev">Henry Bley-Vroman</NuxtLink>.
+        </dd>
+      </div>
+    </dl>
+  </section>
+</template>
