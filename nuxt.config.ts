@@ -25,7 +25,7 @@ export default defineNuxtConfig({
             cursor: pointer;
             text-decoration: underline !important;
             text-decoration-color: currentColor !important;
-            transition: text-decoration-color 100ms;
+            transition: background-color 200ms, color 200ms, text-decoration-color 200ms;
 
             &:focus-visible,
             &:hover {
