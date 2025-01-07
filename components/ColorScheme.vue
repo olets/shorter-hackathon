@@ -15,13 +15,11 @@ onMounted(() => {
 });
 
 const options = [
-  { label: "Computer", value: "light dark", iconLabel: "Laptop", icon: "💻" },
-  { label: "Dark", value: "dark", iconLabel: "Cloud", icon: "☁️" },
+  { label: "Computer", value: "light dark" },
+  { label: "Dark", value: "dark" },
   {
     label: "Light",
     value: "light",
-    iconLabel: "Sun Behind Small Cloud",
-    icon: "☀️",
   },
 ];
 </script>
@@ -41,7 +39,6 @@ const options = [
       v-model="colorScheme.value"
     >
       <option v-for="o in options" :value="o.value">
-        <span role="img" aria-label="{{ o.iconLabel }}">{{ o.icon }}</span>
         {{ o.label }}
       </option>
     </select>
