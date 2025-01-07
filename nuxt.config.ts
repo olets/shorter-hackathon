@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       cdnURL: "https://shorter-hackathon.vercel.app/",
+      contentId: "content",
     },
   },
   unocss: {

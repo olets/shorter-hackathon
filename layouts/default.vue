@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { Header } from "#components";
+const runtimeConfig = useRuntimeConfig();
+import { Header, SkipLink } from "#components";
 </script>
 
 <template>
   <div class="{padding-bottom:2rem}">
-    <!-- TODO skip link -->
+    <SkipLink />
 
     <Header />
 
-    <slot />
+    <main :id="runtimeConfig.public.contentId">
+      <slot />
+    </main>
   </div>
 </template>
