@@ -1,15 +1,13 @@
 <script setup>
-import {
-  Button,
-  Heading,
-  List,
-  QuickFacts,
-  Share,
-  Subheading,
-  Wrapper,
-} from "#components";
-const DynamicBox = resolveComponent("DynamicBox");
-import title from "#shared/title";
+import Button from "../components/Button.vue";
+import DynamicBox from "../components/DynamicBox.vue";
+import Heading from "../components/Heading.vue";
+import List from "../components/List.vue";
+import QuickFacts from "../components/QuickFacts.vue";
+import Share from "../components/Share.vue";
+import Subheading from "../components/Subheading.vue";
+import Wrapper from "../components/Wrapper.vue";
+import { title } from "../constants";
 </script>
 
 <!-- @TODO fancy background effect -->
@@ -30,9 +28,9 @@ import title from "#shared/title";
 
         <p>There's context should know about:</p>
 
-        <NuxtLink class="{align-self:start}" to="/about">
+        <a class="{align-self:start}" href="/about">
           <Button to="/about">Learn More</Button>
-        </NuxtLink>
+        </a>
       </DynamicBox>
 
       <div class="{display:flex} {align-items:center}">

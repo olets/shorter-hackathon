@@ -1,7 +1,5 @@
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig();
-
-import defaultTitle from "#shared/title";
+import { cdnURL, title as defaultTitle } from "../constants.ts";
 
 const props = defineProps<{
   fbAppId?: string;
@@ -25,7 +23,7 @@ const platforms = props.platforms || [
 
 const hashtags = props.hashtags || ["ShorterHackathon", "hackathon"];
 const title = props.title || defaultTitle;
-const url = props.url || runtimeConfig.public.cdnURL;
+const url = props.url || cdnURL;
 
 interface AllPlatforms {
   [key: string]: {
@@ -199,10 +197,10 @@ const allPlatforms: AllPlatforms = {
     class="{display:flex} {flex-wrap:wrap} {justify-content:center} {gap:1rem}"
   >
     <template v-for="platform in platforms">
-      <NuxtLink
+      <a
         class="{border:1px_solid_currentColor} {color:var(--color-light)} {border-radius:4px} {display:inline-flex} {align-items:center} {justify-content:center} {padding:0.25rem_0.5rem} {gap:.25rem} {font-size:1.5rem}"
         v-if="allPlatforms[platform]"
-        :to="allPlatforms[platform].href"
+        :href="allPlatforms[platform].href"
         :style="`${
           allPlatforms[platform]?.color
             ? `background: ${allPlatforms[platform]?.color}; fill: currentColor;`
@@ -214,7 +212,7 @@ const allPlatforms: AllPlatforms = {
           v-html="allPlatforms[platform].icon"
         ></span>
         <span>{{ allPlatforms[platform].label }}</span>
-      </NuxtLink>
+      </a>
     </template>
   </div>
 </template>

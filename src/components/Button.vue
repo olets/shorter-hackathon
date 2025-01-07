@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Subheading } from "#components";
-const DynamicBox = resolveComponent("DynamicBox");
+import Subheading from "../components/Subheading.vue";
+import DynamicBox from "../components/DynamicBox.vue";
 </script>
 
 <template>

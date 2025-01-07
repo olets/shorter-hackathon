@@ -1,6 +1,7 @@
 <script lang="ts">
 // Importing `reactive` in the <script setup> works, but I don't trust that to not break in future versions.
 import { reactive } from "vue";
+import { ids } from "../constants";
 
 interface ColorScheme {
   value: string;
@@ -18,9 +19,8 @@ export const colorScheme: ColorScheme = reactive({
 
 <script setup lang="ts">
 import { onMounted, watch } from "vue";
-const DynamicSrOnly = resolveComponent("DynamicSrOnly");
-const runtimeConfig = useRuntimeConfig();
 
+// TODO not working
 watch(
   () => colorScheme.value,
   (value) => {
@@ -29,11 +29,12 @@ watch(
 );
 
 onMounted(() => {
-  // SEEALSO app.vue, components/ColorScheme.vue
+  // SEEALSO src/layouts/Layout.astro, components/ColorScheme.vue
   let localStorageColorScheme =
     localStorage.getItem("colorScheme") ?? "light dark";
 
   colorScheme.setValue(localStorageColorScheme);
+  console.log("Color scheme set to:", colorScheme.value);
 });
 
 const options = [
@@ -47,17 +48,17 @@ const options = [
 </script>
 
 <template>
-  <div :class="`${colorScheme.value ? '' : '{display:none}'}`">
+  <div :class="`${colorScheme.value ? '' : '{display:xnone}'}`">
     <label
       class="@media(min-width:48rem){display:block}"
-      :for="runtimeConfig.public.ids.colorScheme"
+      :for="ids.colorScheme"
     >
       Theme:
     </label>
 
     <select
       class="{border:1px_solid_currentColor} {border-radius:4px} {padding:0.25rem} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
-      :id="runtimeConfig.public.ids.colorScheme"
+      :id="ids.colorScheme"
       v-model="colorScheme.value"
     >
       <option v-for="o in options" :value="o.value">

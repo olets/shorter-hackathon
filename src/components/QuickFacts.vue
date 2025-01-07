@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const DynamicSrOnly = resolveComponent("DynamicSrOnly");
+import DynamicSrOnly from "../components/DynamicSrOnly.vue";
 </script>
 
 <template>
@@ -26,8 +26,7 @@ const DynamicSrOnly = resolveComponent("DynamicSrOnly");
           Document your start time, document any time(s) you leave and then come
           back, document your end time. Share your project with the hashtag
           <code>#ShorterHackathon</code>, and send a link to and your time
-          documentation to
-          <NuxtLink to="https://olets.dev">Henry Bley-Vroman</NuxtLink>.
+          documentation to <a href="https://olets.dev">Henry Bley-Vroman</a>.
         </dd>
       </div>
     </dl>

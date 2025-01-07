@@ -1,7 +1,9 @@
 <script setup>
-import { QuickFacts, Share, Wrapper } from "#components";
-const DynamicSrOnly = resolveComponent("DynamicSrOnly");
-import title from "#shared/title";
+import QuickFacts from "../components/QuickFacts.vue";
+import Share from "../components/Share.vue";
+import Wrapper from "../components/Wrapper.vue";
+import DynamicSrOnly from "../components/DynamicSrOnly.vue";
+import { title } from "../constants";
 
 const faqItems = [
   {
@@ -60,16 +62,16 @@ const termsAndConditions = [
           <br />
 
           In the spirit of
-          <NuxtLink to="https://www.youtube.com/watch?v=tkg858APzFk"
-            >The Academy of Movies Shot During the Oscars Awards</NuxtLink
+          <a href="https://www.youtube.com/watch?v=tkg858APzFk"
+            >The Academy of Movies Shot During the Oscars Awards</a
           >,
 
           <br />
           <br />
 
           on January 16 —the same day as
-          <NuxtLink to="https://shortest-hackathon.vercel.app/"
-            >The World’s Shortest Hackathon</NuxtLink
+          <a href="https://shortest-hackathon.vercel.app/"
+            >The World’s Shortest Hackathon</a
           >, a 2-hour in-person AI-focused event in which a select few
           developers compete for a chance to win a computer part signed by the
           9th wealthiest person in the world— reserve an hour and fifty minutes
