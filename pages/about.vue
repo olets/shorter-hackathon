@@ -38,10 +38,10 @@ const termsAndConditions = [
 
 <template>
   <NuxtLink
-    class="{background:var(--color-background)} {border:1px_solid_currentColor} {padding:1rem} {position:fixed} {top:20px} {right:20px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
+    class="{background:var(--color-background)} {border:1px_solid_currentColor} {padding:0.5rem} {position:fixed} {top:20px} {right:20px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
     to="/"
   >
-    Homepage 🏠
+    Home 🏠
   </NuxtLink>
 
   <Wrapper>
