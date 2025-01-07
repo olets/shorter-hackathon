@@ -74,12 +74,12 @@ const termsAndConditions = [
           <br />
           <br />
 
-          on January 16, the same day as
+          on January 16 —the same day as
           <a href="https://shortest-hackathon.vercel.app/"
             >The World’s Shortest Hackathon</a
           >, a 2-hour in-person AI-focused event in which a select few
           developers compete for a chance to win a computer part signed by the
-          9th wealthiest person in the world, reserve an hour and fifty minutes
+          9th wealthiest person in the world— reserve an hour and fifty minutes
           to code something without AI.
         </p>
       </section>
