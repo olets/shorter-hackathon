@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import "@unocss/reset/tailwind-compat.css";
 import title from "#shared/title";
-import { ColorScheme } from "#components";
 
 useHead({
   script: [
@@ -111,12 +110,6 @@ useHeadSafe({
 
 <template>
   <div>
-    <div
-      class="{border:1px_solid_currentColor} {padding:0.5rem} {position:fixed} {bottom:20px} {right:20px}"
-    >
-      <ColorScheme />
-    </div>
-
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

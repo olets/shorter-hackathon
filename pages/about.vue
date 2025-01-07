@@ -37,13 +37,6 @@ const termsAndConditions = [
 </script>
 
 <template>
-  <NuxtLink
-    class="{background:var(--color-background)} {border:1px_solid_currentColor} {padding:0.5rem} {position:fixed} {top:20px} {right:20px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
-    to="/"
-  >
-    Home 🏠
-  </NuxtLink>
-
   <Wrapper>
     <div class="{display:flex} {flex-direction:column} {gap:4rem}">
       <h1

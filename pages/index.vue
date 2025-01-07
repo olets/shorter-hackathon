@@ -17,7 +17,7 @@ import title from "#shared/title";
 <template>
   <Wrapper>
     <div
-      class="{display:grid} @media(min-width:calc(768rem_/_16)){grid-template-columns:repeat(2,1fr)} {gap:2rem}"
+      class="{display:grid} @media(min-width:48rem){grid-template-columns:repeat(2,1fr)} {gap:2rem}"
     >
       <DynamicBox
         class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:2rem}"

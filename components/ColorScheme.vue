@@ -22,13 +22,15 @@ const id = "color-scheme";
 </script>
 
 <template>
-  <label :for="id">Theme: </label>
+  <div>
+    <label :for="id">Theme: </label>
 
-  <select
-    class="{border:1px_solid_currentColor} {border-radius:4px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
-    :id="id"
-    v-model="colorScheme.value"
-  >
-    <option v-for="o in options" :value="o.value">{{ o.label }}</option>
-  </select>
+    <select
+      class="{border:1px_solid_currentColor} {border-radius:4px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
+      :id="id"
+      v-model="colorScheme.value"
+    >
+      <option v-for="o in options" :value="o.value">{{ o.label }}</option>
+    </select>
+  </div>
 </template>
