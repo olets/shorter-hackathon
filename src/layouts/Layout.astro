@@ -36,9 +36,11 @@ const imageUrl = "https://shorter-hackathon.vercel.app/open-graph.jpg"
 		<div class="{padding-bottom:2rem}">
 			<SkipLink />
 	
-			<Header />
+			<div class="{position:fixed} {bottom:1.5rem} @media(min-width:48rem){bottom:auto} @media(min-width:48rem){top:1.5rem} {right:1.5rem} {z-index:1}">
+				<Header />
+			</div>
 	
-			<main id={ids.content}>
+			<main class="{position:relative} {z-index:0}" id={ids.content}>
 				<slot />
 			</main>
 		</div>
