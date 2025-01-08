@@ -2,11 +2,10 @@ import type { MiddlewareHandler } from "astro";
 import { parse } from "node-html-parser";
 
 import {
-  LINK_TRANSFORM_MIDDLEWARE_DEV_MODE_LOG_LEVEL as LOG_LEVEL,
+  LINK_TRANSFORM_MIDDLEWARE_LOG_LEVEL as LOG_LEVEL,
   LINK_TRANSFORM_MIDDLEWARE_TRUSTED_HOSTNAMES as trustedHostnamesRaw,
 } from "astro:env/server";
 
-const DEV_MODE = import.meta.env.DEV;
 const TRUSTED_HOSTNAMES = trustedHostnamesRaw.split(",").map((s) => s.trim());
 
 const middlewareHandler: MiddlewareHandler =
@@ -96,7 +95,7 @@ function transformer(text: string, contextHostname: string): string {
 /**
  * Logs debugging messages development mode.
  *
- * Log level is configured with the `LINK_TRANSFORM_MIDDLEWARE_DEV_MODE_LOG_LEVEL` environment variable.
+ * Log level is configured with the `LINK_TRANSFORM_MIDDLEWARE_LOG_LEVEL` environment variable.
  *
  * Levels are:
  *  - 0: no logging (default)
@@ -113,7 +112,7 @@ function devLog(
   href: string,
   transformed: boolean = false
 ): void {
-  if (!DEV_MODE || LOG_LEVEL === 0) {
+  if (LOG_LEVEL === 0) {
     return;
   }
 

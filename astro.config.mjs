@@ -6,7 +6,7 @@ import UnoCSS from "unocss/astro";
 export default defineConfig({
   env: {
     schema: {
-      LINK_TRANSFORM_MIDDLEWARE_DEV_MODE_LOG_LEVEL: envField.number({
+      LINK_TRANSFORM_MIDDLEWARE_LOG_LEVEL: envField.number({
         access: "secret",
         context: "server",
         default: 0,
