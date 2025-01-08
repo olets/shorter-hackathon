@@ -8,4 +8,5 @@ export default defineConfig({
       injectReset: "@unocss/reset/tailwind-compat.css",
     }),
   ],
+  prefetch: true,
 });
