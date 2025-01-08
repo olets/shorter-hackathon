@@ -59,13 +59,19 @@ function transform(text: string, contextHostname: string): string {
       continue;
     }
 
+    let trusted = false;
+
     for (const trustedHostname of TRUSTED_HOSTNAMES) {
       const trustedHostnameRexExp = new RegExp(`^(.+\.)?${trustedHostname}$`);
 
       if (hostname.match(trustedHostnameRexExp)) {
         // trusted external link
-        continue;
+        break;
       }
+    }
+
+    if (trusted) {
+      continue;
     }
 
     // @ts-ignore
