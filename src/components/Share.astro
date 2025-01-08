@@ -202,10 +202,9 @@ const allPlatforms: AllPlatforms = {
     class="{display:flex} {flex-wrap:wrap} {justify-content:center} {gap:1rem}"
   >
     <!-- <template v-for="platform in platforms"> -->
-    {platforms.map((platform) => (
+    {platforms.filter((platform) => allPlatforms[platform]).map((platform) => (
       <a
         class="{border:1px_solid_currentColor} {color:var(--color-light)} {border-radius:4px} {display:inline-flex} {align-items:center} {justify-content:center} {padding:0.25rem_0.5rem} {gap:.25rem} {font-size:1.5rem}"
-        v-if="allPlatforms[platform]"
         href={allPlatforms[platform].href}
         style={`${
           allPlatforms[platform]?.color
@@ -215,7 +214,7 @@ const allPlatforms: AllPlatforms = {
       >
         <span
           class="[&_svg]{width:20px} [&_svg]{height:20px}"
-          v-html="allPlatforms[platform].icon"
+            set:html={allPlatforms[platform].icon}
         ></span>
         <span>{allPlatforms[platform].label}</span>
       </a>
