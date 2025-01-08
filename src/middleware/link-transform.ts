@@ -1,12 +1,15 @@
 import type { APIContext, MiddlewareHandler } from "astro";
 import { parse } from "node-html-parser";
 
-import {
-  LINK_TRANSFORM_MIDDLEWARE_LOG_LEVEL as LOG_LEVEL,
-  LINK_TRANSFORM_MIDDLEWARE_TRUSTED_HOSTNAMES as trustedHostnamesRaw,
-} from "astro:env/server";
+const LOG_LEVEL = Number(
+  import.meta.env.LINK_TRANSFORM_MIDDLEWARE_LOG_LEVEL || 0
+);
 
-const TRUSTED_HOSTNAMES = trustedHostnamesRaw.split(",").map((s) => s.trim());
+const TRUSTED_HOSTNAMES = (
+  import.meta.env.LINK_TRANSFORM_MIDDLEWARE_TRUSTED_HOSTNAMES || ""
+)
+  .split(",")
+  .map((s) => s.trim());
 
 const middlewareHandler: MiddlewareHandler =
   async function linkTransformMiddleware(context, next) {
