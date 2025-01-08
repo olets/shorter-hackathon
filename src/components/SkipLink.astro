@@ -3,6 +3,6 @@ import { ids } from "../constants";
 import Button from "../components/Button.astro";
 ---
 
-<a class="{background:var(--color-background)} {position:absolute} {width:1px} {height:1px} {padding:0} {margin:-1px} {overflow:hidden} {clip:rect(0,0,0,0)} {white-space:nowrap} {border-width:0} :focus{position:static} :focus{width:auto} :focus{height:auto} :focus{padding:0.5rem} :focus{margin:0} :focus{overflow:visible} :focus{clip:auto} :focus{white-space:normal} {left:1.5rem} {top:1.5rem} :focus{position:fixed!important}" href={`#${ids.content}`}>
+<a class="{background:var(--color-background)} {position:absolute} {width:1px} {height:1px} {padding:0} {margin:-1px} {overflow:hidden} {clip:rect(0,0,0,0)} {white-space:nowrap} {border-width:0} :focus{position:static} :focus{width:auto} :focus{height:auto} :focus{margin:0} :focus{overflow:visible} :focus{clip:auto} :focus{white-space:normal} {left:1.5rem} {top:1.5rem} :focus{position:fixed!important} {z-index:999}" href={`#${ids.content}`}>
   <Button>Skip to Content</Button>
 </a>
