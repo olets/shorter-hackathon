@@ -1,7 +1,8 @@
 ---
-import Header from "../components/Header.vue";
-import SkipLink from "../components/SkipLink.vue";
+import Header from "../components/Header.astro";
+import SkipLink from "../components/SkipLink.astro";
 import { ids, title } from "../constants";
+import ColorSchemeManager from "../components/ColorSchemeManager.astro";
 
 const description = "A one hour and fifty minutes AI-free remote coding challenge for everyone"
 const url = "https://shorter-hackathon.vercel.app"
@@ -16,21 +17,7 @@ const imageUrl = "https://shorter-hackathon.vercel.app/open-graph.jpg"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<script>
-			(function () {
-        let initialColorScheme = localStorage.getItem("colorScheme");
-
-        if (!initialColorScheme || !['light', 'dark', 'light dark'].includes(initialColorScheme)) {
-          initialColorScheme = "light dark";
-          localStorage.setItem("colorScheme", initialColorScheme);
-        }
-
-        document.documentElement.setAttribute(
-          "data-initial-color-scheme",
-          initialColorScheme
-        );
-      })();
-		</script>
+		<ColorSchemeManager />
 		<meta name="description" content={description}>
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:image" content={imageUrl}>

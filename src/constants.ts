@@ -7,5 +7,5 @@ export const ids: {
   [key: string]: string;
 } = {
   content: "content",
-  colorScheme: "color-scheme",
+  colorSchemeSelector: "color-scheme-selector",
 };

@@ -1,0 +1,82 @@
+---
+import { ids } from "../constants"
+const { colorSchemeSelector: id } = ids;
+const ElementName = id;
+---
+
+<ElementName />
+
+<script define:vars={{ id }}>
+  if (!customElements.get(id)) {
+    customElements.define(
+      id,
+      class extends HTMLElement {
+        connectedCallback() {
+          this.innerHTML = `
+            <style>
+              :root {
+                --color-light: white;
+                --color-dark: black;
+
+                --color-background: var(--color-light);
+                --color-foreground: var(--color-dark);
+              
+                background-color: var(--color-background);
+                color: var(--color-foreground);
+                color-scheme: var(--color-scheme, light);
+                transition-duration: var(--transition-duration, 200ms);
+                transition-property: background-color, color;
+              
+                &[data-initial-color-scheme="dark"],
+                &:has(#${id} option[value="dark"]:checked) {
+                  --color-background: var(--color-dark);
+                  --color-foreground: var(--color-light);
+                  --color-scheme: dark;
+                }
+              
+                @media (prefers-color-scheme: dark) {
+                  &[data-initial-color-scheme="light dark"],
+                  &:has(#${id} option[value="light dark"]:checked) {
+                    --color-background: var(--color-dark);
+                    --color-foreground: var(--color-light);
+                    --color-scheme: dark;
+                  }
+                }
+              
+                @media screen and (prefers-reduced-motion: reduce), (update: slow) {
+                  --transition-duration: none;
+                }
+              }
+            </style>
+
+            <label
+              class="@media(min-width:48rem){display:block}"
+              for={ids.colorScheme}
+            >
+              Theme:
+            </label>
+
+            <select
+              class="{border:1px_solid_currentColor} {border-radius:4px} {padding:0.25rem} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
+              id="${id}"
+            >
+              <option value="light dark">Computer</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          `;
+
+          this.querySelector("select").onchange = (event) => {
+            colorScheme.set(event.target.value);
+          }
+
+          this.update();
+        }
+
+        update(newColorScheme = colorScheme.get()) {
+          this.querySelector("select").value = newColorScheme;
+        }
+      }
+    );
+  }
+</script>

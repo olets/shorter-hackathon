@@ -1,0 +1,13 @@
+---
+import DynamicSrOnly from "../components/DynamicSrOnly.astro";
+import { ids } from "../constants";
+import Button from "../components/Button.astro";
+---
+
+<DynamicSrOnly
+  class="{left:1.5rem} {top:1.5rem} :focus{position:fixed!important}"
+  disableOnFocus={true}
+  href={`#${ids.content}`}
+  is="a"
+>
+</DynamicSrOnly>
