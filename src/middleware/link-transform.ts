@@ -1,13 +1,19 @@
 import type { MiddlewareHandler } from "astro";
 import { parse } from "node-html-parser";
 
-const TRUSTED_HOSTNAMES = ["olets.dev"];
+const DEV_MODE = import.meta.env.DEV;
+const LOG_LEVEL = Number(
+  import.meta.env.LINK_TRANSFORM_MIDDLEWARE_DEV_MODE_LOG_LEVEL
+);
+const TRUSTED_HOSTNAMES: string[] = JSON.parse(
+  import.meta.env.LINK_TRANSFORM_MIDDLEWARE_TRUSTED_HOSTNAMES ?? "[]"
+);
 
 const middlewareHandler: MiddlewareHandler =
   async function linkTransformMiddleware(context, next) {
     const response = await next();
     const text = await response.text();
-    const transformedText = transform(text, context.url.hostname);
+    const transformedText = transformer(text, context.url.hostname);
 
     return new Response(transformedText, {
       status: 200,
@@ -15,38 +21,38 @@ const middlewareHandler: MiddlewareHandler =
     });
   };
 
-function transform(text: string, contextHostname: string): string {
+function transformer(text: string, contextHostname: string): string {
   const html = parse(text);
   const els = Array.from(html.querySelectorAll("a"));
 
-  function transform(el: HTMLElement): void {
+  function transform(el: HTMLElement, href: string): void {
     el.setAttribute("rel", "noopener noreferrer");
+    devLog("external", href, true);
   }
 
   for (const el of els) {
     const href = el.getAttribute("href");
 
     if (!href) {
-      // not linked
-
       continue;
     }
 
     if (el.hasAttribute("data-link-transform-middleware-external")) {
-      // forced to be treated as external link
-
       // @ts-ignore
-      transform(el);
+      transform(el, href);
       continue;
     }
 
     if (el.hasAttribute("data-link-transform-middleware-internal")) {
-      // forced to be treated as interal link
+      devLog("forced internal", href);
+
       continue;
     }
 
+    // does not match absolute URLs, with or without scheme
     if (!href.match(/^(\S+:\/|\/\/)/)) {
-      // relative link (does not match absolute URLs, with or without scheme)
+      devLog("relative link", href);
+
       continue;
     }
 
@@ -55,7 +61,8 @@ function transform(text: string, contextHostname: string): string {
     const contextHostnameRegExp = new RegExp(`^(.+\\.)?${contextHostname}$`);
 
     if (hostname.match(contextHostnameRegExp)) {
-      // internal absolute link
+      devLog("internal absolute link", href);
+
       continue;
     }
 
@@ -65,7 +72,9 @@ function transform(text: string, contextHostname: string): string {
       const trustedHostnameRexExp = new RegExp(`^(.+\.)?${trustedHostname}$`);
 
       if (hostname.match(trustedHostnameRexExp)) {
-        // trusted external link
+        devLog("trusted external link", href);
+        trusted = true;
+
         break;
       }
     }
@@ -75,10 +84,44 @@ function transform(text: string, contextHostname: string): string {
     }
 
     // @ts-ignore
-    transform(el);
+    transform(el, href);
   }
 
   return html.toString();
+}
+
+/**
+ * Logs debugging messages development mode.
+ *
+ * Log level is configured with the `LINK_TRANSFORM_MIDDLEWARE_DEV_MODE_LOG_LEVEL` environment variable.
+ *
+ * Levels are:
+ *  - 0: no logging (default)
+ *  - 1: log transformed elements
+ *  - 2: log all elements
+ *
+ * @param message
+ * @param data
+ * @param transformed whether the element is transformed
+ * @returns
+ */
+function devLog(
+  message: string,
+  href: string,
+  transformed: boolean = false
+): void {
+  if (!DEV_MODE || LOG_LEVEL === 0) {
+    return;
+  }
+
+  if (LOG_LEVEL === 1 && transformed !== true) {
+    return;
+  }
+
+  console.log(
+    `[LinkTransformMiddleware] ${message}:`,
+    href // .substring(0, 100) + "..."
+  );
 }
 
 export default middlewareHandler;
