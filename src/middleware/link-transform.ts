@@ -27,7 +27,6 @@ function transformer(text: string, contextHostname: string): string {
 
   function transform(el: HTMLElement, href: string): void {
     el.setAttribute("rel", "noopener noreferrer");
-    devLog("external", href, true);
   }
 
   for (const el of els) {
@@ -38,20 +37,22 @@ function transformer(text: string, contextHostname: string): string {
     }
 
     if (el.hasAttribute("data-link-transform-middleware-external")) {
+      devLog("Forced link to be treated as external", href, true);
+
       // @ts-ignore
       transform(el, href);
       continue;
     }
 
     if (el.hasAttribute("data-link-transform-middleware-internal")) {
-      devLog("forced internal", href);
+      devLog("Forced link to be treated as internal", href);
 
       continue;
     }
 
     // does not match absolute URLs, with or without scheme
     if (!href.match(/^(\S+:\/|\/\/)/)) {
-      devLog("relative link", href);
+      devLog("Found link to relative URL", href);
 
       continue;
     }
@@ -61,7 +62,7 @@ function transformer(text: string, contextHostname: string): string {
     const contextHostnameRegExp = new RegExp(`^(.+\\.)?${contextHostname}$`);
 
     if (hostname.match(contextHostnameRegExp)) {
-      devLog("internal absolute link", href);
+      devLog("Found link to absolute internal URL", href);
 
       continue;
     }
@@ -72,7 +73,7 @@ function transformer(text: string, contextHostname: string): string {
       const trustedHostnameRexExp = new RegExp(`^(.+\.)?${trustedHostname}$`);
 
       if (hostname.match(trustedHostnameRexExp)) {
-        devLog("trusted external link", href);
+        devLog("Found link to trusted external URL", href);
         trusted = true;
 
         break;
@@ -82,6 +83,8 @@ function transformer(text: string, contextHostname: string): string {
     if (trusted) {
       continue;
     }
+
+    devLog("Transformed link to external URL", href, true);
 
     // @ts-ignore
     transform(el, href);
@@ -118,10 +121,7 @@ function devLog(
     return;
   }
 
-  console.log(
-    `[LinkTransformMiddleware] ${message}:`,
-    href // .substring(0, 100) + "..."
-  );
+  console.log(`[link-transform Astro middleware]: ${message}\n${href}\n`);
 }
 
 export default middlewareHandler;
