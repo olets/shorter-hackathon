@@ -1,4 +1,4 @@
-import type { MiddlewareHandler } from "astro";
+import type { APIContext, MiddlewareHandler } from "astro";
 import { parse } from "node-html-parser";
 
 import {
@@ -12,7 +12,7 @@ const middlewareHandler: MiddlewareHandler =
   async function linkTransformMiddleware(context, next) {
     const response = await next();
     const text = await response.text();
-    const transformedText = transformer(text, context.url.hostname);
+    const transformedText = transformer(text, context);
 
     return new Response(transformedText, {
       status: 200,
@@ -20,11 +20,17 @@ const middlewareHandler: MiddlewareHandler =
     });
   };
 
-function transformer(text: string, contextHostname: string): string {
-  const html = parse(text);
-  const els = Array.from(html.querySelectorAll("a"));
+function transformer<T>(text: string, context: APIContext): string {
+  const {
+    url: { hostname: contextHostname, pathname: contextPathname },
+  } = context;
 
-  function transform(el: HTMLElement, href: string): void {
+  const html = parse(text);
+  const els = Array.from(
+    html.querySelectorAll("a")
+  ) as unknown as HTMLAnchorElement[];
+
+  function transform(el: HTMLAnchorElement): void {
     el.setAttribute("rel", "noopener noreferrer");
   }
 
@@ -35,6 +41,37 @@ function transformer(text: string, contextHostname: string): string {
       continue;
     }
 
+    if (href === contextPathname) {
+      /**
+       * Add classes to active links
+       */
+      const activeClass = el.getAttribute(
+        "data-link-transform-middleware-active-class"
+      );
+
+      if (activeClass) {
+        devLog("Applied active classes to link", activeClass, true);
+        el.classList.add(...activeClass.split(" "));
+      }
+
+      /**
+       * Add aria-current to active links
+       */
+      let ariaCurrentValue = el.getAttribute(
+        "data-link-transform-middleware-aria-current-value"
+      );
+
+      if (ariaCurrentValue !== undefined) {
+        ariaCurrentValue = ariaCurrentValue || "page";
+
+        devLog("Applied aria-current value to link", ariaCurrentValue, true);
+        el.setAttribute("aria-current", ariaCurrentValue);
+      }
+    }
+
+    /**
+     * Add rel="noopener noreferrer" to external links
+     */
     if (el.hasAttribute("data-link-transform-middleware-external")) {
       devLog("Forced link to be treated as external", href, true);
 

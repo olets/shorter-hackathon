@@ -1,6 +1,8 @@
 import presetCSS from "@olets/unocss-preset-css";
 import { defineConfig } from "unocss";
 
+const fediversePurple = "#9500ff";
+
 export default defineConfig({
   preflights: [
     {
@@ -8,7 +10,10 @@ export default defineConfig({
       getCSS: () => `
         :root {
           --border-width: 1px;
+          --color-accent: ${fediversePurple};
           --width-fancy-corners: 20px;
+
+          accent-color: var(--color-accent);
         }
 
         a {
