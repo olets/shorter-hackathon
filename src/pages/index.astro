@@ -6,7 +6,6 @@ import Heading from "../components/Heading.astro";
 import List from "../components/List.astro";
 import QuickFacts from "../components/QuickFacts.astro";
 import Share from "../components/Share.astro";
-import Subheading from "../components/Subheading.astro";
 import Wrapper from "../components/Wrapper.astro";
 import { title } from "../constants";
 ---
@@ -20,7 +19,7 @@ import { title } from "../constants";
       <DynamicBox
         class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:inherit}"
       >
-        <Heading>
+        <Heading is="h1" size="medium">
           {title}
         </Heading>
 
@@ -39,7 +38,7 @@ import { title } from "../constants";
           is="section"
           class="{display:flex} {flex-direction:column} {justify-content:center} {padding:2rem} {gap:2rem}"
         >
-          <Subheading>From idea to however far you get</Subheading>
+          <Heading is="h2" size="small">From idea to however far you get</Heading>
 
           <p>
             Join other developers in an hour-fifty-minute coding challenge for
@@ -63,7 +62,8 @@ import { title } from "../constants";
     <section
       class="{display:flex} {flex-direction:column} {gap:1rem} {text-align:center} {margin-top:3rem}"
     >
-      <Subheading>Spread the word</Subheading>
+      <Heading is="h2" size="small">Spread the word</Heading>
+      
       <Share
         text={`${title} is a hour-fifty-minute AI-free remote hackathon anyone can join on January 16!`}
       ></Share>
