@@ -9,7 +9,7 @@ import DynamicBox from "../components/DynamicBox.astro";
 -->
 
 <DynamicBox
-  class="{display:inline-block} {padding:.8rem_1.5rem} {--width-fancy-corners:0.625rem} {--DynamicBox-color-background:color-mix(in_srgb,currentColor_20%,transparent)} :focus{--DynamicBox-color-background:transparent} :hover{--DynamicBox-color-background:transparent} :focus-visible{--color-border:var(--color-accent)} :hover{--color-border:var(--color-accent)} {--DynamicBox-corner-width:0.625rem}"
+  class="{display:inline-block} {padding:.8rem_1.5rem} {--width-fancy-corners:0.625rem} {--DynamicBox-color-background:color-mix(in_srgb,currentColor_20%,transparent)} :focus{--DynamicBox-color-background:transparent} :hover{--DynamicBox-color-background:transparent} {--color-border:var(--color-accent)} :focus-visible{--color-border:currentColor} :hover{--color-border:currentColor} {--DynamicBox-corner-width:0.625rem}"
 >
   <Heading is="span" size="small">
     <slot />

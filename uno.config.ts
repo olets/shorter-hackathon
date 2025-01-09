@@ -67,13 +67,18 @@ export default defineConfig({
 
           a {
             text-decoration: underline;
-            text-decoration-color: currentColor;
+            text-decoration-color: var(--color-accent);
             transition-duration: var(--transition-duration);
             transition-property: var(--transition-property);
 
             &:focus-visible,
             &:hover {
-              text-decoration-color: var(--color-accent);
+              text-decoration-color: transparent;
+            }
+
+            &:hover {
+              color: var(--color-accent);
+              text-decoration-color: transparent;
             }
           }
 
