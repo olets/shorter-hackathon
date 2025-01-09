@@ -16,7 +16,7 @@ const links = [
 <header
   class="{display:flex} {align-items:center} @media(min-width:48rem){flex-direction:column} {gap:0.5rem} {background-color:color-mix(in_srgb,var(--color-background)_83%,transparent)} {border:1px_solid_currentColor} {padding:0.5rem}  {backdrop-filter:blur(1px)}"
 >
-  <nav class="{display:inherit} {flex-direction:inherit} {gap:inherit} {gap:inherit}">
+  <nav class="{align-items:inherit} {display:inherit} {flex-direction:inherit} {gap:inherit} {gap:inherit} {padding-bottom:1px} @media(min-width:48rem){padding-bottom:0}">
     <!-- For UnoCSS class="::before{content:}" -->
     {links.map(({ href, text }) => (
       <a
