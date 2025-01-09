@@ -8,42 +8,71 @@ const { class: klass, is: Element = "div"} = Astro.props
 ---
 
 <!--
-  class="{position:relative} {border:var(--border-width)_solid_currentColor} ::before{background:var(--color-background)} ::after{background:var(--color-background)} ::before{content:} ::after{content:} ::before{position:absolute} ::after{position:absolute} ::before{border-width:1px} ::after{border-width:1px} ::before{border-style:solid} ::after{border-style:solid} ::before{width:var(--width-fancy-corners)} ::after{width:var(--width-fancy-corners)} ::before{aspect-ratio:1_/_1} ::after{aspect-ratio:1_/_1} ::before{top:-1px} ::before{left:-1px} ::before{border-top-color:var(--color-background)} ::before{border-right-color:var(--color-foreground)} ::before{border-bottom-color:var(--color-foreground)} ::before{border-left-color:var(--color-background)} ::after{right:-1px} ::after{bottom:-1px} ::after{border-top-color:var(--color-foreground)} ::after{border-right-color:var(--color-background)} ::after{border-bottom-color:var(--color-background)} ::after{border-left-color:var(--color-foreground)}"
+  class="
+    {position:relative}
+    {background:var(--DynamicBox-color-background)}
+    {border:var(--border-width)_solid_var(--color-border)}
+    {transition-duration:var(--transition-duration)}
+    {transition-property:var(--transition-property)}
+
+    ::before{background:var(--color-background)} ::after{background:var(--color-background)}
+    ::before{content:} ::after{content:}
+    ::before{position:absolute} ::after{position:absolute}
+    ::before{border-width:1px} ::after{border-width:1px}
+    ::before{border-style:solid} ::after{border-style:solid}
+    ::before{width:var(--DynamicBox-corner-width)} ::after{width:var(--DynamicBox-corner-width)}
+    ::before{aspect-ratio:1_/_1} ::after{aspect-ratio:1_/_1}
+    ::before{transition-duration:var(--transition-duration)} ::after{transition-duration:var(--transition-duration)}
+    ::before{transition-property:var(--transition-property)} ::after{transition-property:var(--transition-property)}
+
+    ::before{top:-1px}
+    ::before{left:-1px}
+    ::before{border-top-color:var(--color-background)}
+    ::before{border-right-color:var(--color-border)}
+    ::before{border-bottom-color:var(--color-border)}
+    ::before{border-left-color:var(--color-background)}
+
+    ::after{right:-1px}
+    ::after{bottom:-1px}
+    ::after{border-top-color:var(--color-border)}
+    ::after{border-right-color:var(--color-background)}
+    ::after{border-bottom-color:var(--color-background)}
+    ::after{border-left-color:var(--color-border)}"
 -->
 
 <Element
-  class={[
-    '{position:relative}',
-    '{border:var(--border-width)_solid_currentColor}',
+  class={`
+    {position:relative}
+    {background:var(--DynamicBox-color-background)}
+    {border:var(--border-width)_solid_var(--color-border)}
+    {transition-duration:var(--transition-duration)}
+    {transition-property:var(--transition-property)}
 
-    // before and after
-    '::before{background:var(--color-background)} ::after{background:var(--color-background)}',
-    '::before{content:} ::after{content:}',
-    '::before{position:absolute} ::after{position:absolute}',
-    '::before{border-width:1px} ::after{border-width:1px}',
-    '::before{border-style:solid} ::after{border-style:solid}',
-    '::before{width:var(--width-fancy-corners)} ::after{width:var(--width-fancy-corners)}',
-    '::before{aspect-ratio:1_/_1} ::after{aspect-ratio:1_/_1}',
+    ::before{background:var(--color-background)} ::after{background:var(--color-background)}
+    ::before{content:} ::after{content:}
+    ::before{position:absolute} ::after{position:absolute}
+    ::before{border-width:1px} ::after{border-width:1px}
+    ::before{border-style:solid} ::after{border-style:solid}
+    ::before{width:var(--DynamicBox-corner-width)} ::after{width:var(--DynamicBox-corner-width)}
+    ::before{aspect-ratio:1_/_1} ::after{aspect-ratio:1_/_1}
+    ::before{transition-duration:var(--transition-duration)} ::after{transition-duration:var(--transition-duration)}
+    ::before{transition-property:var(--transition-property)} ::after{transition-property:var(--transition-property)}
 
-    // before
-    '::before{top:-1px}',
-    '::before{left:-1px}',
-    '::before{border-top-color:var(--color-background)}',
-    '::before{border-right-color:var(--color-foreground)}',
-    '::before{border-bottom-color:var(--color-foreground)}',
-    '::before{border-left-color:var(--color-background)}',
+    ::before{top:-1px}
+    ::before{left:-1px}
+    ::before{border-top-color:var(--color-background)}
+    ::before{border-right-color:var(--color-border)}
+    ::before{border-bottom-color:var(--color-border)}
+    ::before{border-left-color:var(--color-background)}
 
-    // after
-    '::after{right:-1px}',
-    '::after{bottom:-1px}',
-    '::after{border-top-color:var(--color-foreground)}',
-    '::after{border-right-color:var(--color-background)}',
-    '::after{border-bottom-color:var(--color-background)}',
-    '::after{border-left-color:var(--color-foreground)}',
+    ::after{right:-1px}
+    ::after{bottom:-1px}
+    ::after{border-top-color:var(--color-border)}
+    ::after{border-right-color:var(--color-background)}
+    ::after{border-bottom-color:var(--color-background)}
+    ::after{border-left-color:var(--color-border)}
 
-    klass,
-  ].join(" ")}
+    ${klass}`}
 >
   <slot />
 </Element>
-

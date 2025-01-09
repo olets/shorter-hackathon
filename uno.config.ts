@@ -3,6 +3,9 @@ import { defineConfig } from "unocss";
 import { ids } from "./src/constants";
 
 const fediversePurple = "#9500ff";
+const transitionDuration = "200ms";
+const transitionProperty =
+  "color, background-color, border-color, text-decoration-color, fill, stroke";
 
 export default defineConfig({
   preflights: [
@@ -43,26 +46,46 @@ export default defineConfig({
             }
           }`,
           `
-        :root {
-          --border-width: 1px;
-          --color-accent: ${fediversePurple};
-          --width-fancy-corners: 20px;
-
-          accent-color: var(--color-accent);
-        }
-
-        a {
-          cursor: pointer;
-          text-decoration: underline !important;
-          text-decoration-color: currentColor !important;
-          transition: background-color 200ms, color 200ms, text-decoration-color 200ms;
-
-          &:focus-visible,
-          &:hover {
-            text-decoration-color: transparent !important;
+          :root {
+            --border-width: 1px;
+            --color-accent: ${fediversePurple};
+            --color-border: var(--color-foreground);
+            --DynamicBox-color-background: var(--color-background);
+            --DynamicBox-corner-width: 20px;
+            --transition-duration: 200ms;
+            
+            accent-color: var(--color-accent);
+            transition-property: ${transitionProperty};
           }
-        }
-      `,
+
+          a,
+          input,
+          select {
+            cursor: pointer;
+          }
+
+          a {
+            text-decoration: underline;
+            text-decoration-color: currentColor;
+            transition-duration: var(--transition-duration);
+            transition-property: var(--transition-property);
+
+            &:focus-visible,
+            &:hover {
+              text-decoration-color: var(--color-accent);
+            }
+          }
+
+          select {
+            transition-duration: var(--transition-duration);
+            transition-property: ${transitionProperty};
+
+            &:focus-visible,
+            &:hover {
+              border-color: var(--color-accent);
+            }
+          }
+        `,
         ].join(" "),
     },
   ],
