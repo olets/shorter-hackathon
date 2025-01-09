@@ -4,14 +4,13 @@ import DynamicBox from "../components/DynamicBox.astro";
 ---
 
 <!--
-  for UnoCSS
-    class="{display:inline-block} {padding:.8rem_1.5rem} {--width-fancy-corners:0.625rem} {--DynamicBox-color-background:color-mix(in_srgb,currentColor_20%,transparent)} :focus{--DynamicBox-color-background:transparent} :hover{--DynamicBox-color-background:transparent} :focus-visible{--color-border:var(--color-accent)} :hover{--color-border:var(--color-accent)} {--DynamicBox-corner-width:0.625rem}"
+  class="{display:inline-block} {padding:.8rem_1.5rem} {--DynamicBox-corner-width:0.625rem} {--color-border:var(--color-accent)} {--DynamicBox-color-background:color-mix(in_srgb,var(--color-accent)_30%,transparent)} [&:focus-visible,&:hover]{--DynamicBox-color-background:var(--color-accent)} [&:focus-visible,&:hover]{--color-border:var(--color-foreground)}"
 -->
 
-<DynamicBox
-  class="{display:inline-block} {padding:.8rem_1.5rem} {--width-fancy-corners:0.625rem} {--DynamicBox-color-background:color-mix(in_srgb,currentColor_20%,transparent)} :focus{--DynamicBox-color-background:transparent} :hover{--DynamicBox-color-background:transparent} {--color-border:var(--color-accent)} :focus-visible{--color-border:currentColor} :hover{--color-border:currentColor} {--DynamicBox-corner-width:0.625rem}"
->
+<DynamicBox class="{display:inline-block} {padding:.8rem_1.5rem} {--DynamicBox-corner-width:0.625rem} {--color-border:var(--color-accent)} {--DynamicBox-color-background:color-mix(in_srgb,var(--color-accent)_30%,transparent)} [&:focus-visible,&:hover]{--DynamicBox-color-background:var(--color-accent)} [&:focus-visible,&:hover]{--color-border:var(--color-foreground)}">
   <Heading is="span" size="small">
-    <slot />
+    <span class="{color:var(--color-foreground)}">
+      <slot />
+    </span>
   </Heading>
 </DynamicBox>
