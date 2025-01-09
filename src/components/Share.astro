@@ -211,12 +211,9 @@ const allPlatforms: AllPlatforms = {
               ? `background: ${allPlatforms[platform]?.color}; fill: currentColor;`
               : ''
           };`}
-      >
-        <span
-          class="[&_svg]{width:20px} [&_svg]{height:20px}"
-          set:html={allPlatforms[platform].icon}
-        ></span>
-        {allPlatforms[platform].label}
-      </a>
+      ><span
+        class="[&_svg]{width:20px} [&_svg]{height:20px}"
+        set:html={allPlatforms[platform].icon}
+      ></span>{allPlatforms[platform].label}</a>
     ))}
   </div>

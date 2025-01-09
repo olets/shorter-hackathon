@@ -23,12 +23,11 @@ const middlewareHandler: MiddlewareHandler =
     });
   };
 
-function transformer<T>(text: string, context: APIContext): string {
-  const {
-    url: { hostname: contextHostname, pathname: contextPathname },
-  } = context;
+function transformer(text: string, context: APIContext): string {
+  devLog(`\nProcessing page ${context.routePattern}`, "========", 1);
 
   const html = parse(text);
+
   const els = Array.from(
     html.querySelectorAll("a")
   ) as unknown as HTMLAnchorElement[];
@@ -44,7 +43,7 @@ function transformer<T>(text: string, context: APIContext): string {
       continue;
     }
 
-    if (href === contextPathname) {
+    if (href === context.routePattern) {
       /**
        * Add classes to active links
        */
@@ -53,7 +52,7 @@ function transformer<T>(text: string, context: APIContext): string {
       );
 
       if (activeClass) {
-        devLog("Applied active classes to link", activeClass, 1);
+        devLog("Applied active classes to link", href, 1);
         el.classList.add(...activeClass.split(" "));
       }
 
@@ -67,7 +66,7 @@ function transformer<T>(text: string, context: APIContext): string {
       if (ariaCurrentValue !== undefined) {
         ariaCurrentValue = ariaCurrentValue || "page";
 
-        devLog("Applied aria-current value to link", ariaCurrentValue, 1);
+        devLog("Applied aria-current value to link", href, 1);
         el.setAttribute("aria-current", ariaCurrentValue);
       }
     }
@@ -98,7 +97,9 @@ function transformer<T>(text: string, context: APIContext): string {
 
     const { hostname } = new URL(href);
 
-    const contextHostnameRegExp = new RegExp(`^(.+\\.)?${contextHostname}$`);
+    const contextHostnameRegExp = new RegExp(
+      `^(.+\\.)?${context.url.hostname}$`
+    );
 
     if (hostname.match(contextHostnameRegExp)) {
       devLog("Found link to absolute internal URL", href);
