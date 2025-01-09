@@ -20,7 +20,7 @@ const links = [
     <!-- For UnoCSS class="::before{content:}" -->
     {links.map(({ href, text }) => (
       <a
-        class="::before{height:0px} ::before{width:0px} ::before{border-left:7px_solid_var(--color-accent)} ::before{border-top:5px_solid_transparent} ::before{border-bottom:5px_solid_transparent}  ::before{display:inline-block} ::before{padding-right:7px} ::before{margin-left:-14px}"
+        class="::before{height:0px} ::before{width:0px} ::before{border-left:7px_solid_var(--color-accent)} ::before{border-top:5px_solid_transparent} ::before{border-bottom:5px_solid_transparent}  ::before{display:inline-block} ::before{padding-right:7px} ::before@media(min-width:48rem){margin-left:-14px}"
         data-link-transform-middleware-active-class="::before{content:}"
         data-link-transform-middleware-aria-current-value
         href={href}
