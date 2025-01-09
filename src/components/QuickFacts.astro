@@ -1,5 +1,11 @@
 ---
 import DynamicSrOnly from "../components/DynamicSrOnly.astro";
+
+interface Props {
+  showDetails?: boolean;
+}
+
+const { showDetails = false } = Astro.props;
 ---
 
 <section>
@@ -19,14 +25,16 @@ import DynamicSrOnly from "../components/DynamicSrOnly.astro";
       <dd class="{display:inline}">Whereever you are</dd>
     </div>
 
-    <div>
-      <dt class="{display:inline} {font-weight:600}">How:&nbsp;</dt>
-      <dd class="{display:inline}">
-        Document your start time, document any time(s) you leave and then come
-        back, document your end time. Share your project with the hashtag
-        <code>#ShorterHackathon</code>, and send a link to and your time
-        documentation to <a href="https://olets.dev">Henry Bley-Vroman</a>.
-      </dd>
-    </div>
+    {showDetails && (
+      <div>
+        <dt class="{display:inline} {font-weight:600}">How:&nbsp;</dt>
+        <dd class="{display:inline}">
+          Document your start time, document any time(s) you leave and then come
+          back, document your end time. Share your project with the hashtag
+          <code>#ShorterHackathon</code>, and send a link to and your time
+          documentation to <a href="https://olets.dev">Henry Bley-Vroman</a>.
+        </dd>
+      </div>
+    )}
   </dl>
 </section>
