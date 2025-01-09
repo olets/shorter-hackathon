@@ -52,7 +52,6 @@ export default defineConfig({
             --transition-duration: 200ms;
             --transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
             
-            accent-color: var(--color-accent);
             transition-property: var(--transition-property);
           }
 
