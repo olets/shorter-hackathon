@@ -1,7 +1,14 @@
 ---
 import Header from "../components/Header.astro";
 import SkipLink from "../components/SkipLink.astro";
-import { ids, title } from "../constants";
+import { ids, title as siteTitle } from "../constants";
+interface Props {
+	pageTitle?: string;
+}
+
+const { pageTitle } = Astro.props;
+
+const title = [pageTitle, siteTitle].filter(v => v).join(" | ");
 
 const description = "A one hour and fifty minutes AI-free remote coding challenge for everyone"
 const url = "https://shorter-hackathon.vercel.app"
