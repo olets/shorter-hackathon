@@ -10,9 +10,12 @@ const { pageTitle } = Astro.props;
 
 const title = [pageTitle, siteTitle].filter(v => v).join(" | ");
 
-const description = "A one hour and fifty minutes AI-free remote coding challenge for everyone"
-const url = "https://shorter-hackathon.vercel.app"
-const imageUrl = "https://shorter-hackathon.vercel.app/shorter-hackathon-preview-image.png"
+const description = "A one hour and fifty minutes AI-free remote coding challenge for everyone";
+
+const url = new URL(import.meta.env.SITE);
+
+const imageUrl = url;
+imageUrl.pathname = "shorter-hackathon-preview-image.png";
 ---
 
 <!doctype html>
@@ -25,17 +28,17 @@ const imageUrl = "https://shorter-hackathon.vercel.app/shorter-hackathon-preview
 		<title>{title}</title>
 		<meta name="description" content={description}>
 		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:image" content={imageUrl}>
+		<meta name="twitter:image" content={imageUrl.href}>
 		<meta name="twitter:title" content={title}>
-		<meta name="url" content={url}>
+		<meta name="url" content={url.href}>
 		<meta property="fediverse:creator" content="@olets@hachyderm.io">
 		<meta property="og:description" content={description}>
 		<meta property="og:image:height" content="630">
 		<meta property="og:image:width" content="1200">
-		<meta property="og:image" content={imageUrl}>
+		<meta property="og:image" content={imageUrl.href}>
 		<meta property="og:title" content={title}>
 		<meta property="og:type" content="website">
-		<meta property="og:url" content={url}>
+		<meta property="og:url" content={url.href}>
 	</head>
 	<body class="{background:var(--color-background)} {color:var(--color-foreground)} {padding-bottom:6rem}">
 		<SkipLink />
