@@ -42,56 +42,60 @@ const termsAndConditions = [
 
 <Layout>
 	<Wrapper>
-		<div class="{display:flex} {flex-direction:column} {gap:4rem}">
+		<div class="{display:flex} {flex-direction:column} {gap:clamp(2rem,1.3043rem_+_3.4783vw,4rem)}">
 			<Heading is="h1" size="large">
 				{title}
 			</Heading>
 
-			<section
-				class="{font-weight:300} {font-size:1.5rem} {text-align:center} {display:inherit} {flex-direction:inherit} {gap:1rem}"
-			>
-				<DynamicSrOnly is="h2">Introduction</DynamicSrOnly>
+			<div class="{display:inherit} {flex-direction:inherit} {gap:inherit} {font-size:clamp(1.125rem,0.9946rem_+_0.6522vw,1.5rem)} {font-weight:300}">
+				<section
+					class="{text-align:center} {display:inherit} {flex-direction:inherit} {gap:1rem}"
+				>
+					<DynamicSrOnly is="h2">Introduction</DynamicSrOnly>
 
-				<p>
-					People can code cool things in a short period of time, without a
-					monetarily valuable reward, without AI, regardless of where they live
-					and can afford to travel to, regardless of how many people they'd like
-					to work with, regardless of when in the day can make time.
+					<p>
+						People can code cool things in a short period of time, without a
+						monetarily valuable reward, without AI, regardless of where they live
+						and can afford to travel to, regardless of how many people they'd like
+						to work with, regardless of when in the day can make time.
 
-					<br />
-					<br />
+						<br />
+						<br />
 
-					In the spirit of
-					<a href="https://www.youtube.com/watch?v=tkg858APzFk"
-						>The Academy of Movies Shot During the Oscars Awards</a
-					>,
+						In the spirit of
+						<a href="https://www.youtube.com/watch?v=tkg858APzFk"
+							>The Academy of Movies Shot During the Oscars Awards</a
+						>,
 
-					<br />
-					<br />
+						<br />
+						<br />
 
-					on January 16 —the same day as
-					<a href="https://shortest-hackathon.vercel.app/"
-						>The World’s Shortest Hackathon</a
-					>, a 2-hour in-person AI-focused event in which a select few
-					developers compete for a chance to win a computer part signed by the
-					9th wealthiest person in the world— reserve an hour and fifty minutes
-					to code something without AI.
-				</p>
-			</section>
+						on January 16 —the same day as
+						<a href="https://shortest-hackathon.vercel.app/"
+							>The World’s Shortest Hackathon</a
+						>, a 2-hour in-person AI-focused event in which a select few
+						developers compete for a chance to win a computer part signed by the
+						9th wealthiest person in the world— reserve an hour and fifty minutes
+						to code something without AI.
+					</p>
+				</section>
 
-			<div class="{font-weight:300} {font-size:1.5rem}">
 				<QuickFacts></QuickFacts>
 
-				<div
-					class="{display:flex} {flex-direction:column} {gap:1.5rem} {align-items:center} {margin-top:3rem}"
-				>
-					Tell your networks that you intend to participate!
+				<section class="{margin:clamp(1.125rem,0.4728rem_+_3.2609vw,3rem)_0}">
+					<DynamicSrOnly is="h2">Share</DynamicSrOnly>
 
-					<Share
-						hashtags={['ShorterHackathon', 'hackathon']}
-						text={`On January 16 I'm going to take part in ${title}, the hour-fifty-minute AI-free remote hackathon anyone can join.`}
-					></Share>
-				</div>
+					<div
+						class="{display:flex} {flex-direction:column} {gap:1.5rem} {align-items:center}"
+					>
+						Tell your networks that you intend to participate!
+
+						<Share
+							hashtags={['ShorterHackathon', 'hackathon']}
+							text={`On January 16 I'm going to take part in ${title}, the hour-fifty-minute AI-free remote hackathon anyone can join.`}
+						></Share>
+					</div>
+				</section>
 			</div>
 
 			<section>

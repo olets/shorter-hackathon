@@ -48,7 +48,7 @@ export default defineConfig({
             --color-accent: ${fediversePurple};
             --color-border: var(--color-foreground);
             --DynamicBox-color-background: var(--color-background);
-            --DynamicBox-corner-width: 20px;
+            --DynamicBox-corner-width: 1.25rem;
             --transition-duration: 200ms;
             --transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
             
