@@ -62,6 +62,10 @@ export default defineConfig({
           input,
           select {
             cursor: pointer;
+
+            &:focus-visible {
+              outline-offset: 0.5rem;
+            }
           }
 
           a {
