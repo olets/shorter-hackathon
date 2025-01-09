@@ -1,0 +1,24 @@
+---
+import { ids } from "../constants"
+import LocalStorageSync from "../components/LocalStorageSync.astro"
+---
+
+<!-- <localstorage-sync> -->
+<LocalStorageSync>
+  <label
+    class="@media(min-width:48rem){display:block}"
+    for={ids.colorSchemeSelector}
+  >
+    Theme:
+  </label>
+
+  <select
+    class="{border:1px_solid_currentColor} {border-radius:4px} {padding:0.25rem} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)}"
+    id={ids.colorSchemeSelector}
+    data-localstorage-sync-key="colorScheme"
+  >
+    <option value="light dark">Computer</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+</LocalStorageSync>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  is: string;
+  size: 'small' | 'medium' | 'large';
+}
+
+const { is: Is, size } = Astro.props;
+---
+
+{size === 'small' && (
+<Is class="{text-transform:uppercase} {font-weight:700} {font-family:monospace}">
+  <slot></slot>
+</Is>
+) }
+
+{size === 'medium' && (
+  <Is class="{font-size:clamp(1.5625rem,1.2155rem_+_1.7348vw,2.56rem)} {font-weight:500} {line-height:1} {text-transform:uppercase} {word-spacing:.5ch}">
+    <slot></slot>
+  </Is>
+) }
+
+{size === 'large' && (
+  <Is class="{font-size:clamp(2.25rem,1.6413rem_+_3.0435vw,4rem)} {line-height:1} {text-align:center} {text-transform:uppercase} {font-weight:700}">
+    <slot></slot>
+  </Is>
+) }

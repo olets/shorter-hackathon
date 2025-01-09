@@ -1,0 +1,64 @@
+---
+/**
+ * Syncs an inputs value with localstorage.
+ * 
+ * On load,
+ * if the value exists in localStorage, the input is updated;
+ * otherwise, localStorage is updated.
+ * 
+ * Thereafter, when the input value changes localStorage is updated.
+ * 
+ * ```
+ * ---
+ * import LocalstorageSync from …
+ * ---
+ * 
+ * <LocalstorageSync>
+ *  <input data-localstorage-sync-key="myCoolInput" type="number" value="1" />
+ * </LocalstorageSync>
+ */
+---
+
+<localstorage-sync>
+  <slot />
+</localstorage-sync>
+
+<script is:inline>
+/* type El = HTMLInputElement; */
+
+class LocalstorageSync extends HTMLElement {
+  els/*: El[]*/ = [];
+
+  constructor() {
+    super();
+
+    this.els = Array.from(
+      this.querySelectorAll("[data-localstorage-sync-key]")
+    );
+
+    this.els.forEach((el) => {
+      const key = el.getAttribute("data-localstorage-sync-key")/* as string */;
+
+      const value = localStorage.getItem(key);
+
+      if (value) {
+        el.value = value;
+      } else {
+        this.set(el.value, key);
+      }
+
+      el.addEventListener("change", (e) => {
+        this.set(key, (e.currentTarget /* as El */).value);
+      });
+    });
+  }
+
+  set(key/*: string */, value/*: string */) {
+    localStorage.setItem(key, value);
+  }
+}
+
+if (!customElements.get("localstorage-sync")) {
+  customElements.define("localstorage-sync", LocalstorageSync);
+}
+</script>

@@ -1,0 +1,17 @@
+---
+import Heading from "../components/Heading.astro";
+import DynamicBox from "../components/DynamicBox.astro";
+---
+
+<!--
+  for UnoCSS
+    class="{display:inline-block} {padding:.8rem_1.5rem} {--width-fancy-corners:10px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :focus-visible{--color-border:var(--color-accent)} :hover{--color-border:var(--color-accent)} {--DynamicBox-corner-width:10px}"
+-->
+
+<DynamicBox
+  class="{display:inline-block} {padding:.8rem_1.5rem} {--width-fancy-corners:10px} :focus-visible{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :hover{background-color:color-mix(in_srgb,currentColor_20%,transparent)} :focus-visible{--color-border:var(--color-accent)}  :hover{--color-border:var(--color-accent)} {--DynamicBox-corner-width:10px}"
+>
+  <Heading is="span" size="small">
+    <slot />
+  </Heading>
+</DynamicBox>

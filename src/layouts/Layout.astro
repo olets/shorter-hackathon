@@ -1,0 +1,46 @@
+---
+import Header from "../components/Header.astro";
+import SkipLink from "../components/SkipLink.astro";
+import { ids, title } from "../constants";
+
+const description = "A one hour and fifty minutes AI-free remote coding challenge for everyone"
+const url = "https://shorter-hackathon.vercel.app"
+const imageUrl = "https://shorter-hackathon.vercel.app/open-graph.jpg"
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description}>
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:image" content={imageUrl}>
+		<meta name="twitter:title" content={title}>
+		<meta name="url" content={url}>
+		<meta property="fediverse:creator" content="@olets@hachyderm.io">
+		<meta property="og:description" content={description}>
+		<meta property="og:image:height" content="630">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image" content={imageUrl}>
+		<meta property="og:title" content={title}>
+		<meta property="og:type" content="website">
+		<meta property="og:url" content={url}>
+	</head>
+	<body class="{background:var(--color-background)} {color:var(--color-foreground)}">
+		<div class="{padding-bottom:2rem}">
+			<SkipLink />
+	
+			<div class="{position:fixed} {bottom:1.5rem} @media(min-width:48rem){bottom:auto} @media(min-width:48rem){top:1.5rem} {right:1.5rem} {z-index:1}">
+				<Header />
+			</div>
+	
+			<main class="{position:relative} {z-index:0}" id={ids.content}>
+				<slot />
+			</main>
+		</div>
+	</body>
+</html>

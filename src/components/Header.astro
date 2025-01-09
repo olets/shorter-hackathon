@@ -1,0 +1,32 @@
+---
+import ColorSchemeSelector from "../components/ColorSchemeSelector.astro";
+
+const links = [
+  {
+    href: "/",
+    text: "Home"
+  },
+  {
+    href: "/about",
+    text: "About",
+  },
+]
+---
+
+<header
+  class="{display:flex} {align-items:center} @media(min-width:48rem){align-items:startx} @media(min-width:48rem){flex-direction:column} {gap:0.5rem} {background-color:color-mix(in_srgb,var(--color-background)_75%,transparent)} {border:1px_solid_currentColor} {padding:0.5rem}  {backdrop-filter:blur(1px)}"
+>
+  <nav class="{display:inherit} {flex-direction:inherit} {gap:inherit} {gap:inherit}">
+    <!-- For UnoCSS class="::before{content:}" -->
+    {links.map(({ href, text }) => (
+      <a
+        class="::before{height:0px} ::before{width:0px} ::before{border-left:7px_solid_var(--color-accent)} ::before{border-top:5px_solid_transparent} ::before{border-bottom:5px_solid_transparent}  ::before{display:inline-block} ::before{padding-right:7px} ::before{margin-left:-14px}"
+        data-link-transform-middleware-active-class="::before{content:}"
+        data-link-transform-middleware-aria-current-value
+        href={href}
+      >{text}</a>
+    ))}
+  </nav>
+
+  <ColorSchemeSelector />
+</header>

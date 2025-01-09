@@ -1,0 +1,23 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="{margin-left:2rem}">
+  <li
+    class="::marker{content:-__} ::marker{color:color-mix(in_srgb,currentColor_60%,transparent)}"
+  >
+    {items[0]}
+  </li>
+
+  {items.slice(1).map((item) => (
+    <li
+      class="::marker{content:-__} ::marker{color:color-mix(in_srgb,currentColor_60%,transparent)} {margin-top:1rem}"
+    >
+      {item}
+    </li>
+  ))}
+</ul>
