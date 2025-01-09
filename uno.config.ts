@@ -2,7 +2,10 @@ import presetCSS from "@olets/unocss-preset-css";
 import { defineConfig } from "unocss";
 import { ids } from "./src/constants";
 
-const fediversePurple = "#9500ff";
+/**
+ * Fediverse logo's dark purple, with lightness reduced for color contrast accessibility
+ */
+const colorAccent = "#8100D6";
 
 export default defineConfig({
   preflights: [
@@ -45,7 +48,7 @@ export default defineConfig({
           `
           :root {
             --border-width: 1px;
-            --color-accent: ${fediversePurple};
+            --color-accent: ${colorAccent};
             --color-border: var(--color-foreground);
             --DynamicBox-color-background: var(--color-background);
             --DynamicBox-corner-width: 1.25rem;
