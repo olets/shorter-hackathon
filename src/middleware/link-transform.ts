@@ -53,7 +53,7 @@ function transformer<T>(text: string, context: APIContext): string {
       );
 
       if (activeClass) {
-        devLog("Applied active classes to link", activeClass, true);
+        devLog("Applied active classes to link", activeClass, 1);
         el.classList.add(...activeClass.split(" "));
       }
 
@@ -67,7 +67,7 @@ function transformer<T>(text: string, context: APIContext): string {
       if (ariaCurrentValue !== undefined) {
         ariaCurrentValue = ariaCurrentValue || "page";
 
-        devLog("Applied aria-current value to link", ariaCurrentValue, true);
+        devLog("Applied aria-current value to link", ariaCurrentValue, 1);
         el.setAttribute("aria-current", ariaCurrentValue);
       }
     }
@@ -76,7 +76,7 @@ function transformer<T>(text: string, context: APIContext): string {
      * Add rel="noopener noreferrer" to external links
      */
     if (el.hasAttribute("data-link-transform-middleware-external")) {
-      devLog("Forced link to be treated as external", href, true);
+      devLog("Forced link to be treated as external", href, 1);
 
       // @ts-ignore
       transform(el, href);
@@ -123,7 +123,7 @@ function transformer<T>(text: string, context: APIContext): string {
       continue;
     }
 
-    devLog("Transformed link to external URL", href, true);
+    devLog("Transformed link to external URL", href, 1);
 
     // @ts-ignore
     transform(el, href);
@@ -133,7 +133,7 @@ function transformer<T>(text: string, context: APIContext): string {
 }
 
 /**
- * Logs debugging messages development mode.
+ * Logs debugging messages if the environment's log level is at least as high as the required log level.
  *
  * Log level is configured with the `LINK_TRANSFORM_MIDDLEWARE_LOG_LEVEL` environment variable.
  *
@@ -144,19 +144,15 @@ function transformer<T>(text: string, context: APIContext): string {
  *
  * @param message
  * @param data
- * @param transformed whether the element is transformed
+ * @param logLevel minimum required log level to display the message
  * @returns
  */
-function devLog(
-  message: string,
-  href: string,
-  transformed: boolean = false
-): void {
+function devLog(message: string, href: string, logLevel: 0 | 1 | 2 = 2): void {
   if (LOG_LEVEL === 0) {
     return;
   }
 
-  if (LOG_LEVEL === 1 && transformed !== true) {
+  if (LOG_LEVEL < logLevel) {
     return;
   }
 
