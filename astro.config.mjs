@@ -9,4 +9,5 @@ export default defineConfig({
     }),
   ],
   prefetch: true,
+  site: "https://shorter-hackathon.vercel.app",
 });
