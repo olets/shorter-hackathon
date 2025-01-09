@@ -3,9 +3,6 @@ import { defineConfig } from "unocss";
 import { ids } from "./src/constants";
 
 const fediversePurple = "#9500ff";
-const transitionDuration = "200ms";
-const transitionProperty =
-  "color, background-color, border-color, text-decoration-color, fill, stroke";
 
 export default defineConfig({
   preflights: [
@@ -53,9 +50,10 @@ export default defineConfig({
             --DynamicBox-color-background: var(--color-background);
             --DynamicBox-corner-width: 20px;
             --transition-duration: 200ms;
+            --transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
             
             accent-color: var(--color-accent);
-            transition-property: ${transitionProperty};
+            transition-property: var(--transition-property);
           }
 
           a,
@@ -82,7 +80,7 @@ export default defineConfig({
 
           select {
             transition-duration: var(--transition-duration);
-            transition-property: ${transitionProperty};
+            transition-property: var(--transition-property);
 
             &:focus-visible,
             &:hover {
