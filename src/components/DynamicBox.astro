@@ -1,10 +1,15 @@
 ---
 interface Props {
   class?: string;
+  cornerSize?: 'small' | 'large';
   is?: string;
 };
 
-const { class: klass, is: Element = "div"} = Astro.props
+const {
+  class: klass,
+  cornerSize: cornerSize,
+  is: Element = "div",
+} = Astro.props
 ---
 
 <!--
@@ -37,7 +42,9 @@ const { class: klass, is: Element = "div"} = Astro.props
     ::after{border-top-color:var(--color-border)}
     ::after{border-right-color:var(--color-background)}
     ::after{border-bottom-color:var(--color-background)}
-    ::after{border-left-color:var(--color-border)}"
+    ::after{border-left-color:var(--color-border)}
+    
+    {--DynamicBox-corner-width:0.625rem}"
 -->
 
 <Element
@@ -71,6 +78,8 @@ const { class: klass, is: Element = "div"} = Astro.props
     ::after{border-right-color:var(--color-background)}
     ::after{border-bottom-color:var(--color-background)}
     ::after{border-left-color:var(--color-border)}
+
+    ${cornerSize === 'small' ? '{--DynamicBox-corner-width:0.625rem}' : ''}
 
     ${klass}`}
 >
