@@ -204,23 +204,19 @@ const allPlatforms: AllPlatforms = {
     <!-- <template v-for="platform in platforms"> -->
     {platforms.filter((platform) => allPlatforms[platform]).map((platform) => (
       <a
-        class="{padding:0.5rem} {border-radius:4px}"
+        class="{border-radius:4px} {border:1px_solid_currentColor} {color:var(--color-light)} {display:inline-flex} {align-items:center} {justify-content:center} {gap:.5rem} {font-size:1.5rem} {padding:0.25rem_0.5rem} :focus-visible{text-decoration:transparent} :hover{text-decoration:transparent} {outline-offset:0.5rem}"
         href={allPlatforms[platform].href}
-      >
-        <span
-          class="{border:1px_solid_currentColor} {border-radius:inherit} {color:var(--color-light)} {display:inline-flex} {align-items:center} {justify-content:center} {gap:.5rem} {font-size:1.5rem} {padding:0.25rem_0.5rem}"
           style={`${
             allPlatforms[platform]?.color
               ? `background: ${allPlatforms[platform]?.color}; fill: currentColor;`
               : ''
           };`}
-        >
-          <span
-            class="[&_svg]{width:20px} [&_svg]{height:20px}"
-            set:html={allPlatforms[platform].icon}
-          ></span>
-          <span>{allPlatforms[platform].label}</span>
-        </span>
+      >
+        <span
+          class="[&_svg]{width:20px} [&_svg]{height:20px}"
+          set:html={allPlatforms[platform].icon}
+        ></span>
+        {allPlatforms[platform].label}
       </a>
     ))}
   </div>
