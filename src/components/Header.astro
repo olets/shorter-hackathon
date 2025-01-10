@@ -20,9 +20,6 @@ const links = [
   is="header"
 >
   <nav class="{align-items:inherit} {display:inherit} {flex-direction:inherit} {gap:inherit} {gap:inherit} {padding-bottom:1px} @media(min-width:48rem){padding-bottom:0}">
-    <!-- For UnoCSS
-      class="::before{height:0px} ::before{width:0px} ::before{border-left:0.4375rem_solid_var(--color-accent)} ::before{border-top:0.3125rem_solid_transparent} ::before{border-bottom:0.3125rem_solid_transparent} ::before{display:inline-block} ::before{padding-right:0.4375rem} ::before@media(min-width:48rem){margin-left:-0.875rem}"
-    -->
     {links.map(({ href, text }) => (
       <a
         class="::before{height:0px} ::before{width:0px} ::before{border-left:0.4375rem_solid_var(--color-accent)} ::before{border-top:0.3125rem_solid_transparent} ::before{border-bottom:0.3125rem_solid_transparent} ::before{display:inline-block} ::before{padding-right:0.4375rem} ::before@media(min-width:48rem){margin-left:-0.875rem}"
