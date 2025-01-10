@@ -17,6 +17,8 @@ const middlewareHandler: MiddlewareHandler =
     const text = await response.text();
     const transformedText = transformer(text, context);
 
+    console.log({ contextUrlHostname: context.url.hostname });
+
     return new Response(transformedText, {
       status: 200,
       headers: response.headers,
@@ -96,12 +98,11 @@ function transformer(text: string, context: APIContext): string {
     }
 
     const { hostname } = new URL(href);
+    const { hostname: siteHostname } = new URL(import.meta.env.SITE);
 
-    const contextHostnameRegExp = new RegExp(
-      `^(.+\\.)?${context.url.hostname}$`
-    );
+    const siteHostnameRegExp = new RegExp(`^(.+\\.)?${siteHostname}$`);
 
-    if (hostname.match(contextHostnameRegExp)) {
+    if (hostname.match(siteHostnameRegExp)) {
       devLog("Found link to absolute internal URL", href);
 
       continue;
