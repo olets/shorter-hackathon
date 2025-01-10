@@ -9,6 +9,7 @@ const {
   class: klass,
   cornerSize: cornerSize,
   is: Element = "div",
+  ...rest
 } = Astro.props
 ---
 
@@ -82,6 +83,7 @@ const {
     ${cornerSize === 'small' ? '{--DynamicBox-corner-width:0.625rem}' : ''}
 
     ${klass}`}
+  {...rest}
 >
   <slot />
 </Element>

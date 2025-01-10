@@ -1,13 +1,20 @@
 ---
 import Heading from "../components/Heading.astro";
 import DynamicBox from "../components/DynamicBox.astro";
+
+interface Props {
+  class?: string;
+  tester?: string;
+}
+
+const { class: klass, tester, ...rest } = Astro.props
 ---
 
 <!--
   class="{display:inline-block} {padding:.8rem_1.5rem} {--DynamicBox-corner-width:0.625rem} {--color-border:var(--color-accent)} {--DynamicBox-color-background:color-mix(in_srgb,var(--color-accent)_30%,transparent)} [&:focus-visible,&:hover]{--DynamicBox-color-background:var(--color-accent)} [&:focus-visible,&:hover]{--color-border:var(--color-light)}"
 -->
 
-<DynamicBox cornerSize="small" class="{display:inline-block} {padding:.8rem_1.5rem} {--color-border:var(--color-accent)} {--DynamicBox-color-background:color-mix(in_srgb,var(--color-accent)_30%,transparent)} [&:focus-visible,&:hover]{--DynamicBox-color-background:var(--color-accent)} [&:focus-visible,&:hover]{--color-border:var(--color-foreground)} [&:focus-visible,&:hover]{color:var(--color-light)}">
+<DynamicBox cornerSize="small" class=`{display:inline-block} {padding:.8rem_1.5rem} {--color-border:var(--color-accent)} {--DynamicBox-color-background:color-mix(in_srgb,var(--color-accent)_30%,transparent)} [&:focus-visible,&:hover]{--DynamicBox-color-background:var(--color-accent)} [&:focus-visible,&:hover]{--color-border:var(--color-foreground)} [&:focus-visible,&:hover]{color:var(--color-light)} ${klass}` is="a" {...rest}>
   <Heading is="span" size="small">
     <span>
       <slot />

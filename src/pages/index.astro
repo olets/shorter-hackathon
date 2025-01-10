@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from "../components/Button.astro";
+import ButtonLink from "../components/ButtonLink.astro";
 import DynamicBox from "../components/DynamicBox.astro";
 import Heading from "../components/Heading.astro";
 import List from "../components/List.astro";
@@ -27,9 +27,9 @@ import { title } from "../constants";
 
         <p>There's motivation and details you should know about:</p>
 
-        <a class="{align-self:start}" href="/about"
-          ><Button>Read all about it</Button></a
-        >
+        <div>
+          <ButtonLink href="/about">Read all about it</ButtonLink>
+        </div>
       </DynamicBox>
 
       <div class="{display:flex} {align-items:center}">
