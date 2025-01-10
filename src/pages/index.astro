@@ -49,14 +49,16 @@ import { title } from "../constants";
 
           <List
             items={[
-              "Take part as an individual, or as a group.",
+              "Any individual or group can join.",
               "All participants will get some good TBD something or other.",
-              "Everyone is welcome.",
             ]}
           />
 
-          <!-- @TODO fancy effect -->
-          <p>Merry hacking!</p>
+          <div class="{position:relative} {width:40%}">
+            <img src="/cat-typing.jpg" alt="A black and white cat typing on a laptop. Animates on hover">
+
+            <img src="/cat-typing.gif" class="{display:none} {position:absolute} {inset:0} [img:hover_+_&]{display:block}" alt="" aria-hidden="true">
+          </div>
         </DynamicBox>
       </div>
     </div>
