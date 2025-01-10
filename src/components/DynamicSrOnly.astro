@@ -2,10 +2,9 @@
 interface Props {
   class?: string;
   is?: string;
-  disableOnFocus?: boolean;
 }
 
-const { class: klass, is: Element = "span", disableOnFocus } = Astro.props
+const { class: klass, is: Element = "span" } = Astro.props
 ---
 
 <!--
@@ -15,14 +14,9 @@ const { class: klass, is: Element = "span", disableOnFocus } = Astro.props
   "
 -->
 
+<!-- Getting a TS error on an attribute? Refer to src/astro-jsx.d.ts  -->
 <Element
-  class={[
-    '{position:absolute} {width:1px} {height:1px} {padding:0} {margin:-1px} {overflow:hidden} {clip:rect(0,0,0,0)} {white-space:nowrap} {border-width:0}',
-    disableOnFocus
-      ? ':focus{position:static} :focus{width:auto} :focus{height:auto} :focus{padding:0} :focus{margin:0} :focus{overflow:visible} :focus{clip:auto} :focus{white-space:normal}'
-      : '',
-    klass,
-  ].join(" ")}
+  class=`sr-only ${klass}`
 >
   <slot />
 </Element>

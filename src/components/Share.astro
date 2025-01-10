@@ -204,7 +204,7 @@ const allPlatforms: AllPlatforms = {
     <!-- <template v-for="platform in platforms"> -->
     {platforms.filter((platform) => allPlatforms[platform]).map((platform) => (
       <a
-        class="{border-radius:4px} {border:1px_solid_currentColor} {color:var(--color-light)} {display:inline-flex} {align-items:center} {justify-content:center} {gap:.5rem} {font-size:1.5rem} {padding:0.25rem_0.5rem} {text-decoration-color:currentColor} :focus-visible{text-decoration-color:transparent} :hover{text-decoration-color:transparent} :focus-visible{color:var(--color-foreground)} :hover{color:var(--color-foreground)}"
+        class="{border-radius:4px} {border:1px_solid_currentColor} {color:var(--color-light)} {display:inline-flex} {align-items:center} {justify-content:center} {gap:.5rem} {font-size:1.5rem} {padding:0.25rem_0.5rem} {text-decoration-color:currentColor} :focus-visible{text-decoration-color:transparent} :hover{text-decoration-color:transparent} [&:focus-visible,&:hover]{color:var(--color-light)}"
         href={allPlatforms[platform].href}
           style={`${
             allPlatforms[platform]?.color
