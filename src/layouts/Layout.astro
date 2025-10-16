@@ -3,14 +3,15 @@ import Header from "../components/Header.astro";
 import SkipLink from "../components/SkipLink.astro";
 import { ids, title as siteTitle } from "../constants";
 interface Props {
-	pageTitle?: string;
+  pageTitle?: string;
 }
 
 const { pageTitle } = Astro.props;
 
-const title = [pageTitle, siteTitle].filter(v => v).join(" | ");
+const title = [pageTitle, siteTitle].filter((v) => v).join(" | ");
 
-const description = "A one hour and fifty minutes AI-free remote coding challenge for everyone";
+const description =
+  "A one hour and fifty minutes AI-free remote coding challenge for everyone";
 
 const url = new URL(import.meta.env.SITE);
 
@@ -20,38 +21,43 @@ imageUrl.pathname = "shorter-hackathon-preview-image.png";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<script src="https://cdn.usefathom.com/script.js" data-site="WOIALQSP" defer></script>
-		<meta name="description" content={description}>
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:description" content={description}>
-		<meta name="twitter:image" content={imageUrl.href}>
-		<meta name="twitter:title" content={title}>
-		<meta name="url" content={url.href}>
-		<meta property="fediverse:creator" content="@olets@hachyderm.io">
-		<meta property="og:description" content={description}>
-		<meta property="og:image:height" content="630">
-		<meta property="og:image:width" content="1200">
-		<meta property="og:image" content={imageUrl.href}>
-		<meta property="og:site_name" content={siteTitle}>
-		<meta property="og:title" content={title}>
-		<meta property="og:type" content="website">
-		<meta property="og:url" content={url.href}>
-	</head>
-	<body class="{background:var(--color-background)} {color:var(--color-foreground)} {padding-bottom:6rem}">
-		<SkipLink />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script src="https://cdn.usefathom.com/script.js" data-site="WOIALQSP" defer
+    ></script>
+    <meta name="description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl.href} />
+    <meta name="twitter:title" content={title} />
+    <meta name="url" content={url.href} />
+    <meta property="fediverse:creator" content="@olets@hachyderm.io" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image" content={imageUrl.href} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url.href} />
+  </head>
+  <body
+    class="{background:var(--color-background)} {color:var(--color-foreground)} {padding-bottom:6rem}"
+  >
+    <SkipLink />
 
-		<div class="{position:fixed} {bottom:1.5rem} @media(min-width:48rem){bottom:auto} @media(min-width:48rem){top:1.5rem} {right:1.5rem} {z-index:1}">
-			<Header />
-		</div>
+    <div
+      class="{position:fixed} {bottom:1.5rem} @media(min-width:48rem){bottom:auto} @media(min-width:48rem){top:1.5rem} {right:1.5rem} {z-index:1}"
+    >
+      <Header />
+    </div>
 
-		<main class="{position:relative} {z-index:0}" id={ids.content}>
-			<slot />
-		</main>
-	</body>
+    <main class="{position:relative} {z-index:0}" id={ids.content}>
+      <slot />
+    </main>
+  </body>
 </html>
